@@ -62,6 +62,14 @@ export default function IssuerDashboard() {
   const handleIssuerLogin = () => {
     if (cooldown > 0) return;
 
+    // Explicitly BLOCK gmail.com to prevent any whitelist ambiguity
+    if (email.endsWith("@gmail.com") && email !== "prashant37364@gmail.com") {
+      toast.error("Restricted Domain", {
+        description: "Public email providers like Gmail are not allowed. Please use your institution's .edu or .ac.in email."
+      });
+      return;
+    }
+
     // 1. Hackathon Admin Bypass
     if (email === "prashant37364@gmail.com") {
       setIsApproved(true);
