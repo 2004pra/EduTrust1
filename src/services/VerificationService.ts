@@ -3,20 +3,20 @@ import { ethers, BrowserProvider, Contract, formatEther } from 'ethers';
 // Contract ABIs (minimal for frontend usage)
 export const CREDENTIAL_ABI = [
   "function getCredential(uint256 tokenId) view returns (string title, string issuer, string ipfsHash, uint256 issuedAt, bool revoked)",
-  "function balanceOf(address account, uint256 id) view returns (uint256)",
-  "function getStudentCredentials(address student) view returns (uint256[])",
-  "function uri(uint256 tokenId) view returns (string)",
-  "function mintCredential(address student, string memory title, string memory issuer, string memory ipfsHash) returns (uint256)",
+  "function balanceOf(address account, uint256 id) view returns (uint256 balance)",
+  "function getStudentCredentials(address student) view returns (uint256[] tokenIds)",
+  "function uri(uint256 tokenId) view returns (string uri)",
+  "function mintCredential(address student, string memory title, string memory issuer, string memory ipfsHash) returns (uint256 tokenId)",
   "event CredentialMinted(uint256 indexed tokenId, address indexed student, address indexed issuer, string title, string ipfsHash)",
 ];
 
 export const VERIFIER_ABI = [
-  "function verificationFee() view returns (uint256)",
-  "function hasAccess(address verifier, uint256 tokenId) view returns (bool)",
-  "function getAccessExpiry(address verifier, uint256 tokenId) view returns (uint256)",
-  "function requestVerification(uint256 tokenId, address studentAddress) payable returns (bytes32)",
-  "function verificationCount(uint256 tokenId) view returns (uint256)",
-  "function studentEarnings(address student) view returns (uint256)",
+  "function verificationFee() view returns (uint256 fee)",
+  "function hasAccess(address verifier, uint256 tokenId) view returns (bool hasAccess)",
+  "function getAccessExpiry(address verifier, uint256 tokenId) view returns (uint256 expiresAt)",
+  "function requestVerification(uint256 tokenId, address studentAddress) payable returns (bytes32 requestId)",
+  "function verificationCount(uint256 tokenId) view returns (uint256 count)",
+  "function studentEarnings(address student) view returns (uint256 earnings)",
   "function withdrawEarnings()",
   "event VerificationPaymentReceived(uint256 indexed tokenId, address indexed verifier, address indexed student, uint256 amount, bytes32 accessHash)",
   "event AccessGranted(uint256 indexed tokenId, address indexed verifier, uint256 expiresAt)",
