@@ -322,6 +322,118 @@ export class VerificationService {
   }
 
   /**
+   * Get all credentials for a student address from the blockchain
+   */
+  async getStudentCredentials(studentAddress: string): Promise<CredentialData[]> {
+    if (!this.credentialContract) {
+      console.error('Credential contract not initialized');
+      return [];
+    }
+
+    try {
+      // Get token IDs owned by this student
+      const tokenIds: bigint[] = await this.credentialContract.getStudentCredentials(studentAddress);
+
+      // Fetch details for each credential
+      const credentials: CredentialData[] = [];
+      for (const tokenId of tokenIds) {
+        try {
+          const [title, issuer, ipfsHash, issuedAt, revoked] =
+            await this.credentialContract.getCredential(Number(tokenId));
+
+          credentials.push({
+            tokenId: Number(tokenId),
+            title,
+            issuer,
+            ipfsHash,
+            issuedAt: new Date(Number(issuedAt) * 1000),
+            revoked,
+            owner: studentAddress,
+          });
+        } catch (e) {
+          console.warn(`Failed to fetch credential ${tokenId}:`, e);
+        }
+      }
+
+      return credentials;
+    } catch (error) {
+      console.error('Failed to get student credentials:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Search for a credential by IPFS hash across all known tokens
+   * This queries the blockchain to find a matching credential
+   */
+  async findCredentialByIPFSHash(ipfsHash: string, maxTokenId: number = 100): Promise<CredentialData | null> {
+    if (!this.credentialContract) {
+      console.error('Credential contract not initialized');
+      return null;
+    }
+
+    try {
+      // Search through tokens to find matching IPFS hash
+      for (let tokenId = 0; tokenId <= maxTokenId; tokenId++) {
+        try {
+          const [title, issuer, storedHash, issuedAt, revoked] =
+            await this.credentialContract.getCredential(tokenId);
+
+          // Check if this credential's IPFS hash matches
+          if (storedHash && storedHash.toLowerCase() === ipfsHash.toLowerCase()) {
+            return {
+              tokenId,
+              title,
+              issuer,
+              ipfsHash: storedHash,
+              issuedAt: new Date(Number(issuedAt) * 1000),
+              revoked,
+              owner: '', // Would need additional query
+            };
+          }
+        } catch (e) {
+          // Token doesn't exist, continue searching
+          continue;
+        }
+      }
+
+      return null;
+    } catch (error) {
+      console.error('Failed to find credential by IPFS hash:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Get a credential directly by token ID from the blockchain
+   * Enhanced version with student address lookup
+   */
+  async getCredentialWithOwner(tokenId: number, studentAddress?: string): Promise<CredentialData | null> {
+    if (!this.credentialContract) {
+      console.error('Credential contract not initialized');
+      return null;
+    }
+
+    try {
+      const [title, issuer, ipfsHash, issuedAt, revoked] =
+        await this.credentialContract.getCredential(tokenId);
+
+      return {
+        tokenId,
+        title,
+        issuer,
+        ipfsHash,
+        issuedAt: new Date(Number(issuedAt) * 1000),
+        revoked,
+        owner: studentAddress || '',
+      };
+    } catch (error) {
+      console.error('Failed to get credential:', error);
+      return null;
+    }
+  }
+
+  /**
    * Get verification count for a credential
    */
   async getVerificationCount(tokenId: number): Promise<number> {

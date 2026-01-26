@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button';
 import { NFTCard } from '@/components/NFTCard';
 import { useWallet } from '@/contexts/WalletContext';
 import { Header } from '@/components/Header';
-import { Wallet, Shield, Coins, AlertCircle } from 'lucide-react';
+import { verificationService, CredentialData } from '@/services/VerificationService';
+import { Wallet, Shield, Coins, AlertCircle, Loader2 } from 'lucide-react';
 
-// Type definition for credential
+// Type definition for credential display
 interface Credential {
   title: string;
   issuer: string;
@@ -23,29 +24,50 @@ interface Credential {
 export default function StudentVault() {
   const { isConnected, address, balance, connect, formatAddress } = useWallet();
   const [credentials, setCredentials] = useState<Credential[]>([]);
-  
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
-    // Load credentials from storage (simulating blockchain/indexer fetch)
-    const loadCredentials = () => {
+    // Load credentials from BLOCKCHAIN (not localStorage!)
+    const loadCredentials = async () => {
+      if (!isConnected || !address) {
+        setCredentials([]);
+        return;
+      }
+
+      setIsLoading(true);
+      setError(null);
+
       try {
-        const stored = localStorage.getItem('mintedCredentials');
-        if (stored) {
-          const allCredentials = JSON.parse(stored);
-          // In a real app we would filter by owner.
-          // For now, we show all minted credentials as a demo since we don't have wallet-based filtering fully implemented in minting
-          setCredentials(allCredentials);
-        }
+        // Wait a bit for the provider to initialize
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        // Fetch credentials from the blockchain
+        const blockchainCredentials = await verificationService.getStudentCredentials(address);
+
+        // Transform blockchain data to display format
+        const displayCredentials: Credential[] = blockchainCredentials.map((cred: CredentialData) => ({
+          title: cred.title,
+          issuer: cred.issuer,
+          tokenId: cred.tokenId.toString(),
+          price: '0.1', // Default verification price
+          ipfsCid: cred.ipfsHash,
+          timesVerified: 0,
+          totalEarned: '0',
+        }));
+
+        setCredentials(displayCredentials);
       } catch (e) {
-        console.error("Failed to load credentials", e);
+        console.error("Failed to load credentials from blockchain", e);
+        setError("Failed to load credentials. Make sure you're connected to Monad Testnet.");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     loadCredentials();
-    
-    // Listen for storage events in case issuer mints in another tab
-    window.addEventListener('storage', loadCredentials);
-    return () => window.removeEventListener('storage', loadCredentials);
-  }, []);
+  }, [isConnected, address]);
+
 
   if (!isConnected) {
     return (
@@ -77,7 +99,7 @@ export default function StudentVault() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-6 pt-24 pb-16">
         {/* Header */}
         <motion.div
@@ -127,28 +149,28 @@ export default function StudentVault() {
               {credentials.length} items
             </span>
           </div>
-          
+
           {credentials.length === 0 ? (
             <div className="text-center py-16 border border-dashed border-border rounded-2xl bg-secondary/20">
-                <div className="bg-background p-4 rounded-full inline-flex mb-4">
-                    <AlertCircle className="h-8 w-8 text-muted-foreground" />
-                </div>
-                <h3 className="text-lg font-medium mb-2">No Credentials Found</h3>
-                <p className="text-muted-foreground max-w-sm mx-auto">
-                    You haven't received any credentials yet. Once an issuer mints a credential for you, it will appear here.
-                </p>
+              <div className="bg-background p-4 rounded-full inline-flex mb-4">
+                <AlertCircle className="h-8 w-8 text-muted-foreground" />
+              </div>
+              <h3 className="text-lg font-medium mb-2">No Credentials Found</h3>
+              <p className="text-muted-foreground max-w-sm mx-auto">
+                You haven't received any credentials yet. Once an issuer mints a credential for you, it will appear here.
+              </p>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {credentials.map((credential, index) => (
-                <NFTCard 
-                  key={credential.tokenId || index} 
-                  {...credential} 
+              {credentials.map((credential, index) => (
+                <NFTCard
+                  key={credential.tokenId || index}
+                  {...credential}
                   timesVerified={credential.timesVerified || 0}
                   totalEarned={credential.totalEarned || "0"}
-                  index={index} 
+                  index={index}
                 />
-                ))}
+              ))}
             </div>
           )}
         </motion.div>

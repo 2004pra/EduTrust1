@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { VerificationStepper } from '@/components/VerificationStepper';
 import { Header } from '@/components/Header';
 import { useWallet } from '@/contexts/WalletContext';
-import { verificationService } from '@/services/VerificationService';
-import { computeFileCID, lookupCredentialByCID, MockCredential } from '@/lib/ipfs';
-import { 
+import { verificationService, CredentialData } from '@/services/VerificationService';
+import { computeFileCID } from '@/lib/ipfs';
+import {
   Upload,
-  Lock, 
-  Unlock, 
+  Lock,
+  Unlock,
   AlertCircle,
   CheckCircle2,
   Shield,
@@ -22,22 +22,33 @@ import {
 
 type VerificationStep = 'request' | '402' | 'pay' | 'retry' | 'verified';
 
+// Credential type for verification display
+interface VerificationCredential {
+  tokenId: number | string;
+  title: string;
+  issuer: string;
+  ipfsCid: string;
+  studentAddress: string;
+  issuedAt: Date;
+  price?: string;
+}
+
 export default function VerificationPage() {
   const { isConnected, connect, address } = useWallet();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const [currentStep, setCurrentStep] = useState<VerificationStep>('request');
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRequestedVerification, setHasRequestedVerification] = useState(false);
-  
+
   // File upload state
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [computedCID, setComputedCID] = useState<string | null>(null);
   const [isHashing, setIsHashing] = useState(false);
-  
+
   // Matched credential
-  const [credential, setCredential] = useState<MockCredential | null>(null);
+  const [credential, setCredential] = useState<VerificationCredential | null>(null);
   const [verificationResult, setVerificationResult] = useState<{
     accessHash?: string;
     transactionHash?: string;
@@ -53,22 +64,32 @@ export default function VerificationPage() {
     setIsHashing(true);
 
     try {
-      // Compute the IPFS CID (mock hash) from the file
+      // Compute the IPFS CID (hash) from the file
       const cid = await computeFileCID(file);
       setComputedCID(cid);
-      
-      // Look up credential by CID in local storage
-      const foundCredential = lookupCredentialByCID(cid);
-      
-      if (foundCredential) {
+
+      // Look up credential by CID on the BLOCKCHAIN (not localStorage!)
+      const blockchainCredential = await verificationService.findCredentialByIPFSHash(cid);
+
+      if (blockchainCredential) {
+        // Transform to verification display format
+        const foundCredential: VerificationCredential = {
+          tokenId: blockchainCredential.tokenId,
+          title: blockchainCredential.title,
+          issuer: blockchainCredential.issuer,
+          ipfsCid: blockchainCredential.ipfsHash,
+          studentAddress: blockchainCredential.owner || '',
+          issuedAt: blockchainCredential.issuedAt,
+          price: '0.1',
+        };
         setCredential(foundCredential);
         setCurrentStep('402');
       } else {
-        setError(`No credential found for document hash: ${cid.slice(0, 20)}...`);
+        setError(`No credential found on blockchain for document hash: ${cid.slice(0, 20)}...`);
       }
     } catch (err) {
-      console.error('Failed to compute file hash:', err);
-      setError('Failed to process document. Please try again.');
+      console.error('Failed to verify document:', err);
+      setError('Failed to process document. Make sure you are connected to Monad Testnet.');
     } finally {
       setIsHashing(false);
     }
@@ -105,7 +126,7 @@ export default function VerificationPage() {
           expiresAt: result.expiresAt,
         });
         setCurrentStep('retry');
-        
+
         await new Promise(resolve => setTimeout(resolve, 1500));
         setCurrentStep('verified');
       } else {
@@ -148,7 +169,7 @@ export default function VerificationPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-6 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -159,7 +180,7 @@ export default function VerificationPage() {
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-4">Credential Verification</h1>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Upload a credential document to verify its authenticity using x402 payment protocol. 
+              Upload a credential document to verify its authenticity using x402 payment protocol.
               Pay $MON to access verified IPFS data.
             </p>
           </div>
@@ -235,9 +256,8 @@ export default function VerificationPage() {
                         }
                         triggerFileInput();
                       }}
-                      className={`border-2 border-dashed border-border rounded-xl p-12 text-center hover:border-primary/50 transition-colors cursor-pointer group ${
-                        !hasRequestedVerification ? 'opacity-80' : ''
-                      }`}
+                      className={`border-2 border-dashed border-border rounded-xl p-12 text-center hover:border-primary/50 transition-colors cursor-pointer group ${!hasRequestedVerification ? 'opacity-80' : ''
+                        }`}
                     >
                       {isHashing ? (
                         <div className="flex flex-col items-center">
@@ -298,7 +318,7 @@ export default function VerificationPage() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* 402 Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm">
                       <div className="text-center">
@@ -308,7 +328,7 @@ export default function VerificationPage() {
                         <h3 className="text-xl font-bold mb-2">402 Payment Required</h3>
                         <p className="text-muted-foreground mb-1">Pay to access verified credential data</p>
                         <p className="text-2xl font-bold text-gradient">0.1 MON</p>
-                        
+
                         {computedCID && (
                           <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/80 border border-border">
                             <Hash className="h-3.5 w-3.5 text-protocol" />
@@ -329,7 +349,7 @@ export default function VerificationPage() {
                       </div>
                       <span className="font-mono text-sm">0.1 MON</span>
                     </div>
-                    
+
                     {isConnected ? (
                       <Button
                         variant="hero"
@@ -379,7 +399,7 @@ export default function VerificationPage() {
                     {currentStep === 'pay' ? 'Payment Settlement' : 'Verifying On-Chain...'}
                   </h3>
                   <p className="text-muted-foreground">
-                    {currentStep === 'pay' 
+                    {currentStep === 'pay'
                       ? 'Confirming payment on Monad Testnet...'
                       : 'Fetching verified data from IPFS...'}
                   </p>
@@ -432,7 +452,7 @@ export default function VerificationPage() {
                         <p className="text-xs text-muted-foreground mb-1">IPFS CID (Document Hash)</p>
                         <div className="flex items-center justify-between">
                           <p className="font-mono text-sm truncate">{credential.ipfsCid}</p>
-                          <a 
+                          <a
                             href={`https://ipfs.io/ipfs/${credential.ipfsCid}`}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -451,7 +471,7 @@ export default function VerificationPage() {
                           <p className="text-xs text-muted-foreground mb-1">Transaction Hash</p>
                           <div className="flex items-center justify-between">
                             <p className="font-mono text-sm truncate">{verificationResult.transactionHash}</p>
-                            <a 
+                            <a
                               href={`https://testnet.monadexplorer.com/tx/${verificationResult.transactionHash}`}
                               target="_blank"
                               rel="noopener noreferrer"
