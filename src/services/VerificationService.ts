@@ -73,9 +73,33 @@ export class VerificationService {
   private provider: BrowserProvider | null = null;
   private credentialContract: Contract | null = null;
   private verifierContract: Contract | null = null;
+  private initialized: boolean = false;
 
   constructor() {
     this.initProvider();
+  }
+
+  /**
+   * Ensure provider and contracts are initialized
+   * Call this before any blockchain operation
+   */
+  async ensureInitialized(): Promise<boolean> {
+    if (this.initialized && this.credentialContract) {
+      return true;
+    }
+
+    if (typeof window !== 'undefined' && window.ethereum) {
+      try {
+        this.provider = new BrowserProvider(window.ethereum);
+        this.initContracts();
+        this.initialized = true;
+        return true;
+      } catch (err) {
+        console.error('Failed to initialize provider:', err);
+        return false;
+      }
+    }
+    return false;
   }
 
   private async initProvider() {
@@ -87,6 +111,7 @@ export class VerificationService {
         try {
           this.provider = new BrowserProvider(window.ethereum);
           this.initContracts();
+          this.initialized = true;
         } catch (err) {
           console.error('Failed to initialize provider:', err);
         }
@@ -325,6 +350,9 @@ export class VerificationService {
    * Get all credentials for a student address from the blockchain
    */
   async getStudentCredentials(studentAddress: string): Promise<CredentialData[]> {
+    // Ensure provider is initialized
+    await this.ensureInitialized();
+
     if (!this.credentialContract) {
       console.error('Credential contract not initialized');
       return [];
@@ -367,6 +395,9 @@ export class VerificationService {
    * This queries the blockchain to find a matching credential
    */
   async findCredentialByIPFSHash(ipfsHash: string, maxTokenId: number = 100): Promise<CredentialData | null> {
+    // Ensure provider is initialized
+    await this.ensureInitialized();
+
     if (!this.credentialContract) {
       console.error('Credential contract not initialized');
       return null;
