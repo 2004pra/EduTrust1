@@ -27,11 +27,16 @@ export default function StudentVault() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Earnings state
+  const [earnings, setEarnings] = useState<string>('0');
+  const [isWithdrawing, setIsWithdrawing] = useState(false);
+
+  // Fetch earnings and credentials
   useEffect(() => {
-    // Load credentials from BLOCKCHAIN (not localStorage!)
-    const loadCredentials = async () => {
+    const fetchData = async () => {
       if (!isConnected || !address) {
         setCredentials([]);
+        setEarnings('0');
         return;
       }
 
@@ -39,35 +44,55 @@ export default function StudentVault() {
       setError(null);
 
       try {
-        // Wait a bit for the provider to initialize
         await new Promise(resolve => setTimeout(resolve, 500));
 
-        // Fetch credentials from the blockchain
+        // 1. Fetch Credentials
         const blockchainCredentials = await verificationService.getStudentCredentials(address);
-
-        // Transform blockchain data to display format
         const displayCredentials: Credential[] = blockchainCredentials.map((cred: CredentialData) => ({
           title: cred.title,
           issuer: cred.issuer,
           tokenId: cred.tokenId.toString(),
-          price: '0.1', // Default verification price
+          price: '0.1',
           ipfsCid: cred.ipfsHash,
           timesVerified: 0,
           totalEarned: '0',
         }));
-
         setCredentials(displayCredentials);
+
+        // 2. Fetch Earnings
+        const currentEarnings = await verificationService.getStudentEarnings(address);
+        setEarnings(currentEarnings);
+
       } catch (e) {
-        console.error("Failed to load credentials from blockchain", e);
-        setError("Failed to load credentials. Make sure you're connected to Monad Testnet.");
+        console.error("Failed to load vault data", e);
+        setError("Failed to load data. Ensure you are connected to Monad Testnet.");
       } finally {
         setIsLoading(false);
       }
     };
 
-    loadCredentials();
+    fetchData();
   }, [isConnected, address]);
 
+  // Handle Withdraw
+  const handleWithdraw = async () => {
+    if (parseFloat(earnings) <= 0) return;
+
+    setIsWithdrawing(true);
+    try {
+      const result = await verificationService.withdrawEarnings();
+      if (result.success) {
+        setEarnings('0'); // Reset UI after successful withdraw
+        // Optional: Add success toast here if you have toast system
+      } else {
+        setError(result.error || "Withdrawal failed");
+      }
+    } catch (e) {
+      console.error("Withdraw error", e);
+    } finally {
+      setIsWithdrawing(false);
+    }
+  };
 
   if (!isConnected) {
     return (
@@ -134,6 +159,35 @@ export default function StudentVault() {
             </div>
             <p className="text-2xl font-bold">{credentials.length}</p>
             <p className="text-sm text-muted-foreground">Credentials</p>
+          </div>
+
+          <div className="card-protocol p-5 md:col-span-2 flex items-center justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                  <Coins className="h-5 w-5 text-emerald-500" />
+                </div>
+                <span className="text-sm font-medium text-muted-foreground">Available Earnings</span>
+              </div>
+              <p className="text-2xl font-bold">{earnings} MON</p>
+            </div>
+            <Button
+              variant="hero"
+              onClick={handleWithdraw}
+              disabled={parseFloat(earnings) <= 0 || isWithdrawing}
+              className="gap-2"
+            >
+              {isWithdrawing ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Withdrawing...
+                </>
+              ) : (
+                <>
+                  Withdraw Earnings
+                </>
+              )}
+            </Button>
           </div>
         </motion.div>
 
