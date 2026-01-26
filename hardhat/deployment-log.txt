@@ -1,21 +1,21 @@
 🚀 Starting Deployment on Monad Testnet...
 Deploying contracts with account: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
-Account balance: 8.186076900194004959 MON
+Account balance: 7.717602115844681983 MON
 
 1. Deploying EduTrustCredential...
 Waiting for EduTrustCredential deployment...
-✅ EduTrustCredential deployed to: 0xf00DAc39d6cd1311f5D0EA121Afa61181E126740
+✅ EduTrustCredential deployed to: 0x40A0aECE19f6cD9527528a2f58fd8e1bEF155Ed6
 
 2. Deploying X402PaymentVerifier...
 Waiting for X402PaymentVerifier deployment...
-✅ X402PaymentVerifier deployed to: 0xf80f7Ec1a771e9390e13341AD56022EFb7DF4AD2
+✅ X402PaymentVerifier deployed to: 0xD7a7A822A78adC19D05F94F26C58225971f660b5
 
 ========================================
 📜 DEPLOYMENT SUMMARY
 ========================================
 Network: Monad Testnet (Chain ID: 10143)
-EduTrustCredential: 0xf00DAc39d6cd1311f5D0EA121Afa61181E126740
-X402PaymentVerifier: 0xf80f7Ec1a771e9390e13341AD56022EFb7DF4AD2
+EduTrustCredential: 0x40A0aECE19f6cD9527528a2f58fd8e1bEF155Ed6
+X402PaymentVerifier: 0xD7a7A822A78adC19D05F94F26C58225971f660b5
 ========================================
 
 FRONTEND CONSTANTS (Copy these):
@@ -23,10 +23,10 @@ FRONTEND CONSTANTS (Copy these):
   "network": "Monad Testnet",
   "chainId": 10143,
   "deployer": "0x381af6Ee9D93C9DAF539D3392416FC826FAF298B",
-  "timestamp": "2026-01-26T17:45:35.949Z",
+  "timestamp": "2026-01-26T19:29:06.834Z",
   "contracts": {
-    "EduTrustCredential": "0xf00DAc39d6cd1311f5D0EA121Afa61181E126740",
-    "X402PaymentVerifier": "0xf80f7Ec1a771e9390e13341AD56022EFb7DF4AD2"
+    "EduTrustCredential": "0x40A0aECE19f6cD9527528a2f58fd8e1bEF155Ed6",
+    "X402PaymentVerifier": "0xD7a7A822A78adC19D05F94F26C58225971f660b5"
   }
 }
 

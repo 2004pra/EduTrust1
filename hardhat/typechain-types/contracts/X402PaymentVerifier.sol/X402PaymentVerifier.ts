@@ -126,7 +126,7 @@ export interface X402PaymentVerifierInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "requestVerification",
-    values: [BigNumberish, AddressLike]
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "setAccessDuration",
@@ -420,7 +420,7 @@ export interface X402PaymentVerifier extends BaseContract {
   renounceOwnership: TypedContractMethod<[], [void], "nonpayable">;
 
   requestVerification: TypedContractMethod<
-    [tokenId: BigNumberish, studentAddress: AddressLike],
+    [tokenId: BigNumberish],
     [string],
     "payable"
   >;
@@ -532,11 +532,7 @@ export interface X402PaymentVerifier extends BaseContract {
   ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "requestVerification"
-  ): TypedContractMethod<
-    [tokenId: BigNumberish, studentAddress: AddressLike],
-    [string],
-    "payable"
-  >;
+  ): TypedContractMethod<[tokenId: BigNumberish], [string], "payable">;
   getFunction(
     nameOrSignature: "setAccessDuration"
   ): TypedContractMethod<[newDuration: BigNumberish], [void], "nonpayable">;

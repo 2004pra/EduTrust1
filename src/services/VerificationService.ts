@@ -2,7 +2,7 @@ import { ethers, BrowserProvider, Contract, formatEther } from 'ethers';
 
 // Contract ABIs (minimal for frontend usage)
 export const CREDENTIAL_ABI = [
-  "function getCredential(uint256 tokenId) view returns (string title, string issuer, address issuerAddress, string ipfsHash, uint256 issuedAt, bool revoked)",
+  "function getCredential(uint256 tokenId) view returns (string title, string issuer, address issuerAddress, address studentAddress, string ipfsHash, uint256 issuedAt, bool revoked)",
   "function balanceOf(address account, uint256 id) view returns (uint256 balance)",
   "function getStudentCredentials(address student) view returns (uint256[] tokenIds)",
   "function uri(uint256 tokenId) view returns (string uri)",
@@ -14,7 +14,7 @@ export const VERIFIER_ABI = [
   "function verificationFee() view returns (uint256 fee)",
   "function hasAccess(address verifier, uint256 tokenId) view returns (bool hasAccess)",
   "function getAccessExpiry(address verifier, uint256 tokenId) view returns (uint256 expiresAt)",
-  "function requestVerification(uint256 tokenId, address studentAddress) payable returns (bytes32 requestId)",
+  "function requestVerification(uint256 tokenId) payable returns (bytes32 requestId)",
   "function verificationCount(uint256 tokenId) view returns (uint256 count)",
   "function studentEarnings(address student) view returns (uint256 earnings)",
   "function withdrawEarnings()",
@@ -24,10 +24,11 @@ export const VERIFIER_ABI = [
 
 // Contract addresses - Update after deployment
 // Contract addresses - Updated from DEPLOYMENT.md
+// Contract addresses - Updated from DEPLOYMENT v3
 export const CONTRACT_ADDRESSES = {
   monadTestnet: {
-    credential: "0xf00DAc39d6cd1311f5D0EA121Afa61181E126740",
-    verifier: "0xf80f7Ec1a771e9390e13341AD56022EFb7DF4AD2",
+    credential: "0x40A0aECE19f6cD9527528a2f58fd8e1bEF155Ed6",
+    verifier: "0xD7a7A822A78adC19D05F94F26C58225971f660b5",
   },
 };
 
@@ -147,7 +148,7 @@ export class VerificationService {
     }
 
     try {
-      const [title, issuer, , ipfsHash, issuedAt, revoked] =
+      const [title, issuer, , studentAddress, ipfsHash, issuedAt, revoked] =
         await this.credentialContract.getCredential(tokenId);
 
       return {
@@ -157,7 +158,7 @@ export class VerificationService {
         ipfsHash,
         issuedAt: new Date(Number(issuedAt) * 1000),
         revoked,
-        owner: '', // Would need to query balanceOf for all known addresses
+        owner: studentAddress, // Direct from contract
       };
     } catch (error) {
       console.error('Failed to get credential:', error);
@@ -273,8 +274,7 @@ export class VerificationService {
    * Request verification with x402 payment
    */
   async requestVerification(
-    tokenId: number,
-    studentAddress: string
+    tokenId: number
   ): Promise<VerificationResult> {
     if (!this.provider || !this.verifierContract) {
       return { success: false, error: 'Wallet not connected' };
@@ -299,11 +299,10 @@ export class VerificationService {
       const fee = await this.verifierContract.verificationFee();
 
       // Send transaction
-      console.log('Requesting verification for Token:', tokenId, 'Student:', studentAddress);
+      console.log('Requesting verification for Token:', tokenId);
 
       const tx = await verifierWithSigner.requestVerification(
         tokenId,
-        studentAddress,
         { value: fee }
       ).catch((err: any) => {
         // Enhance error message if it's the specific "Student does not own" error
@@ -410,37 +409,11 @@ export class VerificationService {
       // Search through tokens to find matching IPFS hash
       for (let tokenId = 0; tokenId <= maxTokenId; tokenId++) {
         try {
-          const [title, issuer, , storedHash, issuedAt, revoked] =
+          const [title, issuer, , studentAddress, storedHash, issuedAt, revoked] =
             await this.credentialContract.getCredential(tokenId);
 
           // Check if this credential's IPFS hash matches
           if (storedHash && storedHash.toLowerCase() === ipfsHash.toLowerCase()) {
-            // Try to find the student (owner) address from the minting event
-            let ownerAddress = '';
-            try {
-              const filter = this.credentialContract.filters.CredentialMinted(tokenId);
-
-              // Optimize query: Scan only recent history to avoid RPC limits
-              const currentBlock = await this.provider?.getBlockNumber() || 0;
-              const startBlock = Math.max(0, currentBlock - 100000);
-
-              const events = await this.credentialContract.queryFilter(filter, startBlock, 'latest');
-              if (events.length > 0) {
-                // The student address is the second indexed parameter (index 1 in topics)
-                // In ethers v6, we can parse the event args
-                const event = events[0];
-                if ((event as any).args) {
-                  ownerAddress = (event as any).args[1]; // student is the second indexed param
-                  console.log('Found owner from event:', ownerAddress);
-                }
-              } else {
-                console.warn('No minting events found for token', tokenId);
-              }
-            } catch (e) {
-              console.warn('Could not query minting event for owner:', e);
-            }
-
-            console.log('Returning credential with owner:', ownerAddress);
             return {
               tokenId,
               title,
@@ -448,7 +421,7 @@ export class VerificationService {
               ipfsHash: storedHash,
               issuedAt: new Date(Number(issuedAt) * 1000),
               revoked,
-              owner: ownerAddress,
+              owner: studentAddress,
             };
           }
         } catch (e) {

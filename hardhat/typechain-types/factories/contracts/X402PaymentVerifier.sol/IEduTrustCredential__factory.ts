@@ -59,6 +59,11 @@ const _abi = [
         type: "address",
       },
       {
+        internalType: "address",
+        name: "studentAddress",
+        type: "address",
+      },
+      {
         internalType: "string",
         name: "ipfsHash",
         type: "string",

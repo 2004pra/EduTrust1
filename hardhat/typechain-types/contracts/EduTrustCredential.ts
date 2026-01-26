@@ -517,10 +517,11 @@ export interface EduTrustCredential extends BaseContract {
   credentials: TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [string, string, string, string, bigint, boolean] & {
+      [string, string, string, string, string, bigint, boolean] & {
         title: string;
         issuer: string;
         issuerAddress: string;
+        studentAddress: string;
         ipfsHash: string;
         issuedAt: bigint;
         revoked: boolean;
@@ -534,10 +535,11 @@ export interface EduTrustCredential extends BaseContract {
   getCredential: TypedContractMethod<
     [tokenId: BigNumberish],
     [
-      [string, string, string, string, bigint, boolean] & {
+      [string, string, string, string, string, bigint, boolean] & {
         title: string;
         issuer: string;
         issuerAddress: string;
+        studentAddress: string;
         ipfsHash: string;
         issuedAt: bigint;
         revoked: boolean;
@@ -688,10 +690,11 @@ export interface EduTrustCredential extends BaseContract {
   ): TypedContractMethod<
     [arg0: BigNumberish],
     [
-      [string, string, string, string, bigint, boolean] & {
+      [string, string, string, string, string, bigint, boolean] & {
         title: string;
         issuer: string;
         issuerAddress: string;
+        studentAddress: string;
         ipfsHash: string;
         issuedAt: bigint;
         revoked: boolean;
@@ -707,10 +710,11 @@ export interface EduTrustCredential extends BaseContract {
   ): TypedContractMethod<
     [tokenId: BigNumberish],
     [
-      [string, string, string, string, bigint, boolean] & {
+      [string, string, string, string, string, bigint, boolean] & {
         title: string;
         issuer: string;
         issuerAddress: string;
+        studentAddress: string;
         ipfsHash: string;
         issuedAt: bigint;
         revoked: boolean;

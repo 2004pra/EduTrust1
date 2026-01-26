@@ -13,7 +13,8 @@ interface IEduTrustCredential {
         returns (
             string memory title,
             string memory issuer,
-            address issuerAddress, // Updated Interface
+            address issuerAddress,
+            address studentAddress, // Updated Interface
             string memory ipfsHash,
             uint256 issuedAt,
             bool revoked
@@ -100,22 +101,33 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
      * @dev Request verification with x402 payment
      * Returns 402 status if payment insufficient
      * @param tokenId The credential token ID to verify
-     * @param studentAddress The student who owns the credential
+     * NOTE: Student address is now fetched from metadata, not parameter
      */
     function requestVerification(
-        uint256 tokenId,
-        address studentAddress
+        uint256 tokenId
     ) external payable nonReentrant returns (bytes32 accessHash) {
-        // Check credential exists and is owned by student
+        // Fetch credential details to get Addresses
+        (
+            ,
+            ,
+            address issuerAddress,
+            address studentAddress,
+            ,
+            ,
+            bool revoked
+        ) = credentialContract.getCredential(tokenId);
+
+        require(!revoked, "Credential has been revoked");
         require(
-            credentialContract.balanceOf(studentAddress, tokenId) > 0,
-            "Student does not own this credential"
+            studentAddress != address(0),
+            "Invalid student address in credential"
         );
 
-        // Fetch credential details to get Issuer Address
-        (, , address issuerAddress, , , bool revoked) = credentialContract
-            .getCredential(tokenId);
-        require(!revoked, "Credential has been revoked");
+        // Check credential exists and student still owns at least 1?
+        // Actually, in ERC1155, studentAddress is the "original recipient".
+        // If we want to support transfers, we should check balanceOf(studentAddress).
+        // But for university credentials, "Student" usually means the subject, not just bearer.
+        // We will pay the SUBJECT (stored in metadata).
 
         // x402 Payment Required check
         require(msg.value >= verificationFee, "402: Payment Required");
@@ -131,8 +143,7 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         // 2. Pay Issuer (Push payment - instant)
         if (issuerAmount > 0 && issuerAddress != address(0)) {
             (bool sent, ) = issuerAddress.call{value: issuerAmount}("");
-            // We don't revert if issuer payment fails, to avoid blocking verification
-            // In prod, check return or use pull payment for them too.
+            // We don't revert if issuer payment fails
         }
 
         // 3. Pay Platform (Push payment)
@@ -141,28 +152,18 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
             require(sent, "Failed to send protocol fee");
         }
 
-        // Generate access hash
-        accessHash = keccak256(
-            abi.encodePacked(
-                msg.sender,
-                tokenId,
-                block.timestamp,
-                block.prevrandao
-            )
+        // Record verification
+        bytes32 newAccessHash = keccak256(
+            abi.encodePacked(tokenId, msg.sender, block.timestamp)
         );
 
-        // Grant access
-        bytes32 accessKey = keccak256(abi.encodePacked(msg.sender, tokenId));
-        accessGrants[accessKey] = block.timestamp + accessDuration;
-
-        // Record verification
         verificationHistory[tokenId].push(
             VerificationRecord({
                 verifier: msg.sender,
                 tokenId: tokenId,
                 paidAmount: msg.value,
                 timestamp: block.timestamp,
-                accessHash: accessHash
+                accessHash: newAccessHash
             })
         );
 
@@ -173,16 +174,16 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
             msg.sender,
             studentAddress,
             msg.value,
-            accessHash
+            newAccessHash
         );
 
-        emit AccessGranted(
-            tokenId,
-            msg.sender,
-            block.timestamp + accessDuration
-        );
+        bytes32 grantKey = keccak256(abi.encodePacked(msg.sender, tokenId));
+        uint256 expiresAt = block.timestamp + accessDuration;
+        accessGrants[grantKey] = expiresAt;
 
-        return accessHash;
+        emit AccessGranted(tokenId, msg.sender, expiresAt);
+
+        return newAccessHash;
     }
 
     /**

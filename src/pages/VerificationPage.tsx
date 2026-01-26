@@ -49,7 +49,6 @@ export default function VerificationPage() {
 
   // Matched credential
   const [credential, setCredential] = useState<VerificationCredential | null>(null);
-  const [manualStudentAddress, setManualStudentAddress] = useState(''); // Fallback for address
   const [verificationResult, setVerificationResult] = useState<{
     accessHash?: string;
     transactionHash?: string;
@@ -112,22 +111,12 @@ export default function VerificationPage() {
   const handlePay = useCallback(async () => {
     if (!credential) return;
 
-    // Use the auto-detected address OR the manually entered one
-    const targetStudentAddress = credential.studentAddress || manualStudentAddress;
-
-    if (!targetStudentAddress) {
-      setError("Please enter the student's wallet address below.");
-      return;
-    }
-
     setIsProcessing(true);
     setError(null);
     setCurrentStep('pay');
 
     try {
-      const tokenId = typeof credential.tokenId === 'string'
-        ? Number(credential.tokenId)
-        : credential.tokenId;
+      const tokenId = Number(credential.tokenId);
 
       if (Number.isNaN(tokenId)) {
         setError('Invalid credential token ID');
@@ -136,12 +125,9 @@ export default function VerificationPage() {
         return;
       }
 
-      console.log("Starting verification for:", tokenId, "Student:", targetStudentAddress);
+      console.log("Starting verification for:", tokenId);
 
-      const result = await verificationService.requestVerification(
-        tokenId,
-        targetStudentAddress
-      );
+      const result = await verificationService.requestVerification(tokenId);
 
       if (result.success) {
         setVerificationResult({
@@ -166,7 +152,7 @@ export default function VerificationPage() {
     } finally {
       setIsProcessing(false);
     }
-  }, [credential, manualStudentAddress]);
+  }, [credential]);
 
   const resetFlow = useCallback(() => {
     setCurrentStep('request');
@@ -363,26 +349,6 @@ export default function VerificationPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Manual Address Input (Fallback) */}
-                  {!credential.studentAddress && (
-                    <div className="p-6 pb-0">
-                      <label className="text-sm font-medium mb-2 block text-warning">
-                        Student Address Required
-                      </label>
-                      <p className="text-xs text-muted-foreground mb-3">
-                        We couldn't detect the student's wallet address from the blockchain history.
-                        Please enter it manually to ensure they receive their certification fee.
-                      </p>
-                      <input
-                        type="text"
-                        placeholder="0x..."
-                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                        value={manualStudentAddress}
-                        onChange={(e) => setManualStudentAddress(e.target.value)}
-                      />
-                    </div>
-                  )}
 
                   {/* Payment Action */}
                   <div className="p-6 border-t border-border bg-secondary/30">
