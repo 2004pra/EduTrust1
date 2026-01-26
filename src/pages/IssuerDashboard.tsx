@@ -11,6 +11,7 @@ import { useWallet } from '@/contexts/WalletContext';
 import { Header } from '@/components/Header';
 import { computeFileCID } from '@/lib/ipfs';
 import { verificationService } from '@/services/VerificationService';
+import { isVerifiedDomain } from '@/data/universityDomains';
 import { toast } from 'sonner';
 import {
   Wallet, Upload, CheckCircle, AlertTriangle, GraduationCap,
@@ -48,20 +49,28 @@ export default function IssuerDashboard() {
   const [mintSuccess, setMintSuccess] = useState(false);
   const [lastMintCid, setLastMintCid] = useState<string | null>(null);
 
-  // --- HACKATHON DEMO BYPASS ---
+  // --- DOMAIN VERIFICATION LOGIN ---
   const handleIssuerLogin = () => {
+    // 1. Hackathon Admin Bypass
     if (email === "prashant37364@gmail.com") {
       setIsApproved(true);
       setShowLogin(false);
-      toast.success("Demo Access Approved", { description: "University domain verified via bypass." });
-    } else if (email.includes('.edu')) {
-      // Simulate OTP flow for other edu emails
-      toast.info("OTP sent to your college email");
-      // For hackathon, any 6 digits work
+      toast.success("Admin Access Granted", { description: "Welcome back, Admin." });
+      return;
+    }
+
+    // 2. Domain Validation from Whitelist
+    if (isVerifiedDomain(email)) {
+      // In production, we would send a real OTP here
+      toast.success("Institution Verified", {
+        description: `Recognized domain: ${email.split('@')[1]}. Access granted.`
+      });
       setIsApproved(true);
       setShowLogin(false);
     } else {
-      toast.error("Please use a valid institutional email or the demo email.");
+      toast.error("Unrecognized Institution", {
+        description: "Your domain is not in our approved registry. Please contact support."
+      });
     }
   };
 

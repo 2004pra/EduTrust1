@@ -8,11 +8,11 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useRole } from '@/contexts/RoleContext';
 
 export function Header() {
-  const { 
-    address, 
-    isConnected, 
-    isCorrectNetwork, 
-    connect, 
+  const {
+    address,
+    isConnected,
+    isCorrectNetwork,
+    connect,
     disconnect,
     switchToMonad,
   } = useWallet();
@@ -51,9 +51,9 @@ export function Header() {
   // However, I should double check if I want the header there.
   // Let's stick to showing the Header only when a role is selected, or keep it minimal.
   // The user requirement says "only have access to vault, logout only".
-  
+
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -76,11 +76,10 @@ export function Header() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  location.pathname === link.path
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${location.pathname === link.path
                     ? 'bg-secondary text-foreground'
                     : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -125,19 +124,19 @@ export function Header() {
 
                 {/* Wallet Address - Simplified */}
                 <div className="px-3 py-1.5 rounded-lg bg-secondary border border-border text-xs font-mono">
-                    {address?.slice(0, 6)}...{address?.slice(-4)}
+                  {address?.slice(0, 6)}...{address?.slice(-4)}
                 </div>
-                
+
                 {/* Logout Button */}
-                 <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={handleLogout}
-                    className="text-muted-foreground hover:text-destructive transition-colors"
-                    title="Logout"
-                  >
-                    <LogOut className="h-4 w-4" />
-                  </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleLogout}
+                  className="text-muted-foreground hover:text-destructive transition-colors"
+                  title="Logout"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Button>
               </>
             ) : (
               <Button onClick={connect} className="gap-2">
