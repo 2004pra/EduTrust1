@@ -61,7 +61,7 @@ export const universityDomains = [
     "uwaterloo.ca",
 
     // Tech/Online (For Hackathon/Testing)
-    "gmail.com", // Allowed for demo purposes
+    // "gmail.com", // REMOVED: No generic emails allowed in production
     "udemy.com",
     "coursera.org",
     "edx.org",
