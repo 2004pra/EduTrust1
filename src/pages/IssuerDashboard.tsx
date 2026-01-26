@@ -31,6 +31,15 @@ export default function IssuerDashboard() {
   const [email, setEmail] = useState('');
   const [isApproved, setIsApproved] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
+  const [cooldown, setCooldown] = useState(0);
+
+  // Cooldown Timer Logic
+  useEffect(() => {
+    if (cooldown > 0) {
+      const timer = setTimeout(() => setCooldown(cooldown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [cooldown]);
 
   // Form States
   const [studentWallet, setStudentWallet] = useState('');
@@ -51,6 +60,8 @@ export default function IssuerDashboard() {
 
   // --- DOMAIN VERIFICATION LOGIN ---
   const handleIssuerLogin = () => {
+    if (cooldown > 0) return;
+
     // 1. Hackathon Admin Bypass
     if (email === "prashant37364@gmail.com") {
       setIsApproved(true);
@@ -59,21 +70,28 @@ export default function IssuerDashboard() {
       return;
     }
 
+    // Start Cooldown (Prevents spamming the button)
+    setCooldown(30);
+
     // 2. Domain Validation from Whitelist
     if (isVerifiedDomain(email)) {
       // In production, we would send a real OTP here
-      toast.success("Institution Verified", {
-        description: `Recognized domain: ${email.split('@')[1]}. Access granted.`
+      toast.success("OTP Sent to Institution Email", {
+        description: `Please check ${email}. You can resend in 30s.`
       });
-      setIsApproved(true);
-      setShowLogin(false);
+      // For demo, we auto-approve after "OTP check"
+      // Simulating user checking email...
+      setTimeout(() => {
+        setIsApproved(true);
+        setShowLogin(false);
+        toast.success("Verified Successfully");
+      }, 1500);
     } else {
       toast.error("Unrecognized Institution", {
         description: "Your domain is not in our approved registry. Please contact support."
       });
     }
   };
-
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -254,10 +272,16 @@ export default function IssuerDashboard() {
                   placeholder="name@university.edu"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  disabled={cooldown > 0}
                 />
               </div>
-              <Button className="w-full" variant="hero" onClick={handleIssuerLogin}>
-                Verify & Continue
+              <Button
+                className="w-full"
+                variant="hero"
+                onClick={handleIssuerLogin}
+                disabled={cooldown > 0 || !email}
+              >
+                {cooldown > 0 ? `Resend Code in ${cooldown}s` : "Verify & Continue"}
               </Button>
             </div>
           </motion.div>
