@@ -7,29 +7,32 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { WalletProvider } from "@/contexts/WalletContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { RoleProvider, useRole } from "@/contexts/RoleContext";
+import Index from "./pages/Index";
+
 import RoleSelection from "./pages/RoleSelection";
 import IssuerDashboard from "./pages/IssuerDashboard";
 import IssuerLogin from "./pages/IssuerLogin";
 import StudentVault from "./pages/StudentVault";
 import VerificationPage from "./pages/VerificationPage";
 import NotFound from "./pages/NotFound";
-import { Header } from "@/components/Header";
 
 const queryClient = new QueryClient();
 
 // Component to handle role-based routing protection
-const ProtectedRoute = ({ 
-  children, 
-  allowedRole 
-}: { 
-  children: React.ReactNode, 
-  allowedRole?: 'student' | 'issuer' | 'verifier' 
+const ProtectedRoute = ({
+  children,
+  allowedRole
+}: {
+  children: React.ReactNode,
+  allowedRole?: 'student' | 'issuer' | 'verifier'
 }) => {
   const { role, isIssuerVerified } = useRole();
   const location = useLocation();
 
   if (!role) {
-    return <Navigate to="/" replace />;
+    // Instead of redirecting to Home, we might want to send them to /roles or handle it gracefully.
+    // For now, redirecting to /roles is safer if they tried to access a protected route without a role.
+    return <Navigate to="/roles" replace />;
   }
 
   if (allowedRole && role !== allowedRole) {
@@ -45,45 +48,45 @@ const ProtectedRoute = ({
 };
 
 const AppRoutes = () => {
-    const { role } = useRole();
+  // We remove the auto-redirect logic so everyone sees the beautiful landing page first
+  return (
+    <>
+      {/* Header is inside the pages now to handle transparency better, or kept global */}
+      {/* <Header /> Removing global header to let Index manage its own if needed, but Index uses Header so keeping it global is fine, 
+                ACTUALLY Index has <Header /> inside it. To avoid double header, let's remove it here or check Index. 
+                Index.tsx HAS <Header />. 
+                IssuerDashboard HAS <Header />.
+                So we should REMOVE global <Header /> here.
+            */}
 
-    return (
-        <>
-            <Header />
-            <Routes>
-                <Route path="/" element={
-                    role ? (
-                        role === 'student' ? <Navigate to="/vault" replace /> :
-                        role === 'issuer' ? <Navigate to="/issuer" replace /> :
-                        role === 'verifier' ? <Navigate to="/verify" replace /> :
-                        <RoleSelection />
-                    ) : (
-                        <RoleSelection />
-                    )
-                } />
-                
-                <Route path="/vault" element={
-                    <ProtectedRoute allowedRole="student">
-                        <StudentVault />
-                    </ProtectedRoute>
-                } />
-                
-                <Route path="/issuer" element={
-                    <ProtectedRoute allowedRole="issuer">
-                        <IssuerDashboard />
-                    </ProtectedRoute>
-                } />
-                
-                <Route path="/verify" element={
-                    <ProtectedRoute allowedRole="verifier">
-                        <VerificationPage />
-                    </ProtectedRoute>
-                } />
-                
-                <Route path="*" element={<NotFound />} />
-            </Routes>
-        </>
-    );
+      <Routes>
+        <Route path="/" element={<Index />} />
+
+        <Route path="/roles" element={<RoleSelection />} />
+
+
+        <Route path="/vault" element={
+          <ProtectedRoute allowedRole="student">
+            <StudentVault />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/issuer" element={
+          <ProtectedRoute allowedRole="issuer">
+            <IssuerDashboard />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/verify" element={
+          <ProtectedRoute allowedRole="verifier">
+            <VerificationPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
 };
 
 const App = () => (
