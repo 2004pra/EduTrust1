@@ -1,0 +1,8 @@
+staticSites:
+  - name: edutrust-credential-hub
+    buildCommand: npm run build
+    publishPath: dist
+    routes:
+      - type: rewrite
+        source: "/*"
+        destination: /index.html

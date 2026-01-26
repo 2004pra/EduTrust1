@@ -1,0 +1,42 @@
+Running verification with account: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
+
+========================================
+CONTRACT VERIFICATION
+========================================
+
+1. EduTrustCredential Verification:
+   Address: 0x674C1C8955d7695F0548319FC892894268026C13
+   - Admin has ISSUER_ROLE: true
+   - Admin has DEFAULT_ADMIN_ROLE: true
+
+2. X402PaymentVerifier Verification:
+   Address: 0x61dad19556beecc379B891347f053D06F3Ac253b
+   - Verification Fee: 0.1 MON
+   - Fee Recipient: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
+   - Access Duration: 24 hours
+
+3. Testing Credential Mint:
+   - Minting credential to: 0x742d35cc3f9f23bdd79d1e1e7f888fe1b23f8f44
+   - Transaction sent: 0xfc6e58539618a43a11f89cb1bf0454e330e342febab56f0993a65a459715e18e
+   - Transaction confirmed in block: 8408152
+   - Token ID: 0
+   - Student: 0x742d35cC3f9F23BDD79d1e1e7f888fe1b23f8f44
+   - Title: Bachelor of Computer Science
+
+4. Verifying Minted Credential:
+   - Title: Bachelor of Computer Science
+   - Issuer: Stanford University
+   - IPFS Hash: QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco
+   - Issued At: 2026-01-25T04:59:10.000Z
+   - Revoked: false
+   - Student balance: 1
+
+========================================
+✅ VERIFICATION COMPLETE - ALL TESTS PASSED!
+========================================
+
+📋 Summary:
+- EduTrustCredential deployed and working
+- X402PaymentVerifier deployed and configured
+- Successfully minted test credential
+- All contract functions operational

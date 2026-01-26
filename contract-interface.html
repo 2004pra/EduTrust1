@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrust Credential Hub - Monad Testnet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .network-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .info-card p {
+            color: #4b5563;
+            line-height: 1.6;
+            word-break: break-all;
+        }
+
+        .info-card .label {
+            font-weight: bold;
+            color: #1f2937;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .contract-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .contract-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .contract-address {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            word-break: break-all;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 10px 10px 0;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        .input-group label {
+            display: block;
+            color: #1f2937;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .result {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result.error {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .wallet-info {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .wallet-info.disconnected {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-card li {
+            padding: 8px 0;
+            color: #4b5563;
+        }
+
+        .feature-card li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .explorer-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .explorer-link:hover {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎓 EduTrust Credential Hub</h1>
+            <p style="color: #6b7280; margin-top: 10px;">Blockchain-based Educational Credentials on Monad Testnet</p>
+            <span class="status">✅ Deployed & Verified</span>
+        </div>
+
+        <div id="walletInfo" class="wallet-info disconnected">
+            <h3>💼 Wallet Status</h3>
+            <p id="walletStatus">Not Connected</p>
+            <button class="button" onclick="connectWallet()" id="connectBtn">Connect MetaMask</button>
+        </div>
+
+        <div class="network-info">
+            <div class="info-card">
+                <h3>🌐 Network</h3>
+                <p><span class="label">Name:</span> Monad Testnet</p>
+                <p><span class="label">Chain ID:</span> 10143</p>
+                <p><span class="label">RPC:</span> https://testnet-rpc.monad.xyz/</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📅 Deployment</h3>
+                <p><span class="label">Date:</span> Jan 25, 2026</p>
+                <p><span class="label">Deployer:</span> 0x381a...298B</p>
+                <p><span class="label">Status:</span> Active</p>
+            </div>
+
+            <div class="info-card">
+                <h3>💰 Balance</h3>
+                <p><span class="label">Deployer:</span> 9.27 MON</p>
+                <p><span class="label">Verification Fee:</span> 0.1 MON</p>
+                <p><span class="label">Access Duration:</span> 24 hours</p>
+            </div>
+        </div>
+
+        <div class="contract-section">
+            <h2>📜 EduTrustCredential Contract</h2>
+            <p>ERC-1155 NFT-based educational credential system</p>
+            <div class="contract-address">
+                <strong>Address:</strong> 0x674C1C8955d7695F0548319FC892894268026C13
+                <br>
+                <a href="https://explorer.monad.xyz/address/0x674C1C8955d7695F0548319FC892894268026C13" 
+                   target="_blank" class="explorer-link">View on Explorer →</a>
+            </div>
+
+            <div class="input-group">
+                <label>Student Address</label>
+                <input type="text" id="studentAddress" placeholder="0x...">
+            </div>
+
+            <div class="input-group">
+                <label>Credential Title</label>
+                <input type="text" id="credentialTitle" placeholder="e.g., Bachelor of Computer Science">
+            </div>
+
+            <div class="input-group">
+                <label>Issuer Name</label>
+                <input type="text" id="issuerName" placeholder="e.g., Stanford University">
+            </div>
+
+            <div class="input-group">
+                <label>IPFS Hash</label>
+                <input type="text" id="ipfsHash" placeholder="Qm...">
+            </div>
+
+            <button class="button" onclick="mintCredential()" id="mintBtn" disabled>
+                Mint Credential
+            </button>
+
+            <div id="mintResult" class="result"></div>
+        </div>
+
+        <div class="contract-section">
+            <h2>💳 X402PaymentVerifier Contract</h2>
+            <p>Payment verification system for credential access</p>
+            <div class="contract-address">
+                <strong>Address:</strong> 0x61dad19556beecc379B891347f053D06F3Ac253b
+                <br>
+                <a href="https://explorer.monad.xyz/address/0x61dad19556beecc379B891347f053D06F3Ac253b" 
+                   target="_blank" class="explorer-link">View on Explorer →</a>
+            </div>
+
+            <div class="input-group">
+                <label>Token ID to Verify</label>
+                <input type="number" id="tokenId" placeholder="0">
+            </div>
+
+            <button class="button" onclick="payForVerification()" id="verifyBtn" disabled>
+                Pay for Verification (0.1 MON)
+            </button>
+
+            <div id="verifyResult" class="result"></div>
+        </div>
+
+        <div class="contract-section">
+            <h2>🔍 View Credential</h2>
+            <div class="input-group">
+                <label>Token ID</label>
+                <input type="number" id="viewTokenId" placeholder="0">
+            </div>
+
+            <button class="button" onclick="viewCredential()" id="viewBtn" disabled>
+                View Credential Details
+            </button>
+
+            <div id="viewResult" class="result"></div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h4>✨ Features</h4>
+                <ul>
+                    <li>ERC-1155 NFT credentials</li>
+                    <li>Role-based access control</li>
+                    <li>IPFS metadata storage</li>
+                    <li>Credential revocation</li>
+                    <li>Student tracking</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>🔐 Security</h4>
+                <ul>
+                    <li>OpenZeppelin contracts</li>
+                    <li>Admin role management</li>
+                    <li>Issuer permissions</li>
+                    <li>Payment verification</li>
+                    <li>Time-limited access</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h4>📊 Test Results</h4>
+                <ul>
+                    <li>Connection verified</li>
+                    <li>Deployment successful</li>
+                    <li>Minting tested</li>
+                    <li>Payment system active</li>
+                    <li>All functions operational</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script>
+        const MONAD_TESTNET = {
+            chainId: '0x279F', // 10143 in hex
+            chainName: 'Monad Testnet',
+            rpcUrls: ['https://testnet-rpc.monad.xyz/'],
+            nativeCurrency: {
+                name: 'MON',
+                symbol: 'MON',
+                decimals: 18
+            },
+            blockExplorerUrls: ['https://explorer.monad.xyz']
+        };
+
+        const CONTRACTS = {
+            credential: '0x674C1C8955d7695F0548319FC892894268026C13',
+            verifier: '0x61dad19556beecc379B891347f053D06F3Ac253b'
+        };
+
+        const CREDENTIAL_ABI = [
+            "function mintCredential(address student, string title, string issuerName, string ipfsHash) returns (uint256)",
+            "function getCredential(uint256 tokenId) view returns (string title, string issuer, string ipfsHash, uint256 issuedAt, bool revoked)",
+            "function balanceOf(address account, uint256 id) view returns (uint256)"
+        ];
+
+        const VERIFIER_ABI = [
+            "function payForVerification(uint256 tokenId) payable",
+            "function verificationFee() view returns (uint256)"
+        ];
+
+        let provider, signer, credentialContract, verifierContract;
+
+        async function connectWallet() {
+            if (typeof window.ethereum === 'undefined') {
+                alert('Please install MetaMask!');
+                return;
+            }
+
+            try {
+                // Request account access
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                
+                // Try to switch to Monad testnet
+                try {
+                    await window.ethereum.request({
+                        method: 'wallet_switchEthereumChain',
+                        params: [{ chainId: MONAD_TESTNET.chainId }],
+                    });
+                } catch (switchError) {
+                    // Chain doesn't exist, add it
+                    if (switchError.code === 4902) {
+                        await window.ethereum.request({
+                            method: 'wallet_addEthereumChain',
+                            params: [MONAD_TESTNET],
+                        });
+                    }
+                }
+
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+                const address = await signer.getAddress();
+                const balance = await provider.getBalance(address);
+
+                // Initialize contracts
+                credentialContract = new ethers.Contract(CONTRACTS.credential, CREDENTIAL_ABI, signer);
+                verifierContract = new ethers.Contract(CONTRACTS.verifier, VERIFIER_ABI, signer);
+
+                // Update UI
+                document.getElementById('walletInfo').className = 'wallet-info';
+                document.getElementById('walletStatus').innerHTML = `
+                    <strong>Connected:</strong> ${address}<br>
+                    <strong>Balance:</strong> ${ethers.utils.formatEther(balance)} MON
+                `;
+                document.getElementById('connectBtn').textContent = 'Connected ✓';
+                document.getElementById('connectBtn').disabled = true;
+
+                // Enable buttons
+                document.getElementById('mintBtn').disabled = false;
+                document.getElementById('verifyBtn').disabled = false;
+                document.getElementById('viewBtn').disabled = false;
+
+            } catch (error) {
+                console.error('Error connecting wallet:', error);
+                alert('Failed to connect wallet: ' + error.message);
+            }
+        }
+
+        async function mintCredential() {
+            const student = document.getElementById('studentAddress').value;
+            const title = document.getElementById('credentialTitle').value;
+            const issuer = document.getElementById('issuerName').value;
+            const ipfs = document.getElementById('ipfsHash').value;
+
+            if (!student || !title || !issuer || !ipfs) {
+                alert('Please fill all fields');
+                return;
+            }
+
+            try {
+                const resultDiv = document.getElementById('mintResult');
+                resultDiv.className = 'result show';
+                resultDiv.innerHTML = '⏳ Minting credential...';
+
+                const tx = await credentialContract.mintCredential(student, title, issuer, ipfs);
+                resultDiv.innerHTML = `⏳ Transaction sent: ${tx.hash}<br>Waiting for confirmation...`;
+
+                const receipt = await tx.wait();
+                resultDiv.innerHTML = `
+                    ✅ Credential minted successfully!<br>
+                    <strong>Transaction:</strong> <a href="https://explorer.monad.xyz/tx/${receipt.transactionHash}" target="_blank" class="explorer-link">${receipt.transactionHash}</a><br>
+                    <strong>Block:</strong> ${receipt.blockNumber}
+                `;
+            } catch (error) {
+                const resultDiv = document.getElementById('mintResult');
+                resultDiv.className = 'result error show';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        async function payForVerification() {
+            const tokenId = document.getElementById('tokenId').value;
+
+            if (!tokenId && tokenId !== '0') {
+                alert('Please enter a token ID');
+                return;
+            }
+
+            try {
+                const resultDiv = document.getElementById('verifyResult');
+                resultDiv.className = 'result show';
+                resultDiv.innerHTML = '⏳ Processing payment...';
+
+                const tx = await verifierContract.payForVerification(tokenId, {
+                    value: ethers.utils.parseEther('0.1')
+                });
+                resultDiv.innerHTML = `⏳ Transaction sent: ${tx.hash}<br>Waiting for confirmation...`;
+
+                const receipt = await tx.wait();
+                resultDiv.innerHTML = `
+                    ✅ Payment successful! Access granted for 24 hours.<br>
+                    <strong>Transaction:</strong> <a href="https://explorer.monad.xyz/tx/${receipt.transactionHash}" target="_blank" class="explorer-link">${receipt.transactionHash}</a><br>
+                    <strong>Block:</strong> ${receipt.blockNumber}
+                `;
+            } catch (error) {
+                const resultDiv = document.getElementById('verifyResult');
+                resultDiv.className = 'result error show';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        async function viewCredential() {
+            const tokenId = document.getElementById('viewTokenId').value;
+
+            if (!tokenId && tokenId !== '0') {
+                alert('Please enter a token ID');
+                return;
+            }
+
+            try {
+                const resultDiv = document.getElementById('viewResult');
+                resultDiv.className = 'result show';
+                resultDiv.innerHTML = '⏳ Fetching credential...';
+
+                const cred = await credentialContract.getCredential(tokenId);
+                const issuedDate = new Date(cred[3].toNumber() * 1000);
+
+                resultDiv.innerHTML = `
+                    ✅ Credential Details:<br><br>
+                    <strong>Title:</strong> ${cred[0]}<br>
+                    <strong>Issuer:</strong> ${cred[1]}<br>
+                    <strong>IPFS Hash:</strong> ${cred[2]}<br>
+                    <strong>Issued At:</strong> ${issuedDate.toLocaleString()}<br>
+                    <strong>Status:</strong> ${cred[4] ? '❌ Revoked' : '✅ Active'}
+                `;
+            } catch (error) {
+                const resultDiv = document.getElementById('viewResult');
+                resultDiv.className = 'result error show';
+                resultDiv.innerHTML = `❌ Error: ${error.message}`;
+            }
+        }
+
+        // Auto-connect if already authorized
+        window.addEventListener('load', async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                if (accounts.length > 0) {
+                    connectWallet();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

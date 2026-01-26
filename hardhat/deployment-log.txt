@@ -1,0 +1,33 @@
+🚀 Starting Deployment on Monad Testnet...
+Deploying contracts with account: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
+Account balance: 9.273911236796589344 MON
+
+1. Deploying EduTrustCredential...
+Waiting for EduTrustCredential deployment...
+✅ EduTrustCredential deployed to: 0x674C1C8955d7695F0548319FC892894268026C13
+
+2. Deploying X402PaymentVerifier...
+Waiting for X402PaymentVerifier deployment...
+✅ X402PaymentVerifier deployed to: 0x61dad19556beecc379B891347f053D06F3Ac253b
+
+========================================
+📜 DEPLOYMENT SUMMARY
+========================================
+Network: Monad Testnet (Chain ID: 10143)
+EduTrustCredential: 0x674C1C8955d7695F0548319FC892894268026C13
+X402PaymentVerifier: 0x61dad19556beecc379B891347f053D06F3Ac253b
+========================================
+
+FRONTEND CONSTANTS (Copy these):
+{
+  "network": "Monad Testnet",
+  "chainId": 10143,
+  "deployer": "0x381af6Ee9D93C9DAF539D3392416FC826FAF298B",
+  "timestamp": "2026-01-25T04:57:37.564Z",
+  "contracts": {
+    "EduTrustCredential": "0x674C1C8955d7695F0548319FC892894268026C13",
+    "X402PaymentVerifier": "0x61dad19556beecc379B891347f053D06F3Ac253b"
+  }
+}
+
+✅ Addresses saved to deployment-addresses.json

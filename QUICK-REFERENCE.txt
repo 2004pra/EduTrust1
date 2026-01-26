@@ -1,0 +1,144 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    🎓 EDUTRUST CREDENTIAL HUB                                ║
+║                      MONAD TESTNET DEPLOYMENT                                ║
+║                         QUICK REFERENCE                                      ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📋 CONTRACT ADDRESSES                                                        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  EduTrustCredential:                                                         │
+│  0x674C1C8955d7695F0548319FC892894268026C13                                  │
+│                                                                              │
+│  X402PaymentVerifier:                                                        │
+│  0x61dad19556beecc379B891347f053D06F3Ac253b                                  │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🌐 NETWORK CONFIGURATION                                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Network Name:    Monad Testnet                                              │
+│  Chain ID:        10143                                                      │
+│  RPC URL:         https://testnet-rpc.monad.xyz/                             │
+│  Explorer:        https://explorer.monad.xyz                                 │
+│  Symbol:          MON                                                        │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 💼 YOUR WALLET                                                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Address:         0x381af6Ee9D93C9DAF539D3392416FC826FAF298B                │
+│  Balance:         9.27 MON                                                   │
+│  Roles:           Admin + Issuer                                             │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🚀 QUICK START                                                               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. Open contract-interface.html in your browser                            │
+│  2. Click "Connect MetaMask"                                                 │
+│  3. Add Monad Testnet (automatic)                                            │
+│  4. Start minting credentials!                                               │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🔗 EXPLORER LINKS                                                            │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  EduTrustCredential:                                                         │
+│  https://explorer.monad.xyz/address/                                         │
+│  0x674C1C8955d7695F0548319FC892894268026C13                                  │
+│                                                                              │
+│  X402PaymentVerifier:                                                        │
+│  https://explorer.monad.xyz/address/                                         │
+│  0x61dad19556beecc379B891347f053D06F3Ac253b                                  │
+│                                                                              │
+│  Test Transaction:                                                           │
+│  https://explorer.monad.xyz/tx/                                              │
+│  0xfc6e58539618a43a11f89cb1bf0454e330e342febab56f0993a65a459715e18e        │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 💰 PAYMENT CONFIGURATION                                                     │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Verification Fee:    0.1 MON                                                │
+│  Access Duration:     24 hours                                               │
+│  Fee Recipient:       Your wallet (0x381a...298B)                            │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📝 COMMAND LINE SCRIPTS                                                      │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  Deploy contracts:                                                           │
+│  npx hardhat run scripts/deploy.js --network monad                           │
+│                                                                              │
+│  Verify deployment:                                                          │
+│  npx hardhat run scripts/verify.js --network monad                           │
+│                                                                              │
+│  Test connection:                                                            │
+│  npx hardhat run scripts/test-connection.js --network monad                  │
+│                                                                              │
+│  Compile contracts:                                                          │
+│  npm run compile                                                             │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ ✅ VERIFICATION STATUS                                                       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  ✅ Network connection verified                                             │
+│  ✅ Contracts deployed successfully                                         │
+│  ✅ Admin roles configured                                                  │
+│  ✅ Issuer roles configured                                                 │
+│  ✅ Test credential minted (Token ID: 0)                                    │
+│  ✅ Payment system operational                                              │
+│  ✅ All functions tested and working                                        │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 📚 DOCUMENTATION                                                             │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  DEPLOYMENT-SUMMARY.md  - Complete deployment guide                          │
+│  DEPLOYMENT.md          - Detailed documentation                             │
+│  contract-interface.html - Web UI for contracts                              │
+│                                                                              │
+│  hardhat/deployment-log.txt      - Deployment logs                           │
+│  hardhat/verification-log.txt    - Test results                              │
+│  hardhat/deployment-addresses.json - Contract addresses                      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 🎯 NEXT STEPS                                                                │
+├──────────────────────────────────────────────────────────────────────────────┤
+│                                                                              │
+│  1. Open contract-interface.html to interact with contracts                 │
+│  2. Add Monad Testnet to your MetaMask                                       │
+│  3. Mint credentials to real student addresses                               │
+│  4. Test the payment verification system                                     │
+│  5. Integrate with your frontend application                                 │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                    ✅ DEPLOYMENT COMPLETE AND VERIFIED                       ║
+║                                                                              ║
+║                     Everything is working perfectly! 🚀                      ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝

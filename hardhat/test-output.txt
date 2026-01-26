@@ -1,0 +1,9 @@
+Testing Monad Testnet Connection...
+RPC URL: https://testnet-rpc.monad.xyz/
+Chain ID: 10143
+Deployer address: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
+Balance: 9.273911236796589344 MON
+Connected to network: monad Chain ID: 10143
+Current block number: 8407573
+
+✅ Connection successful!
