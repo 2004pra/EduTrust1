@@ -186,6 +186,7 @@ export class VerificationService {
    * Check if user has active access to a credential
    */
   async checkAccess(verifierAddress: string, tokenId: number): Promise<boolean> {
+    await this.ensureInitialized();
     if (!this.verifierContract) return false;
 
     try {

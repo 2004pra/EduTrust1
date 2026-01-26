@@ -83,6 +83,19 @@ export default function VerificationPage() {
           price: '0.1',
         };
         setCredential(foundCredential);
+
+        // Check if user already has access (if wallet is connected)
+        if (address) {
+          const hasAccess = await verificationService.checkAccess(address, blockchainCredential.tokenId);
+          if (hasAccess) {
+            setVerificationResult({
+              expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000), // Access is active
+            });
+            setCurrentStep('verified');
+            return;
+          }
+        }
+
         setCurrentStep('402');
       } else {
         setError(`No credential found on blockchain for document hash: ${cid.slice(0, 20)}...`);
@@ -93,7 +106,7 @@ export default function VerificationPage() {
     } finally {
       setIsHashing(false);
     }
-  }, []);
+  }, [address]);
 
   const handlePay = useCallback(async () => {
     if (!credential) return;
