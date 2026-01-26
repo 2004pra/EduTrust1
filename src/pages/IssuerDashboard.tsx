@@ -12,7 +12,8 @@ import { Header } from '@/components/Header';
 import { computeFileCID } from '@/lib/ipfs';
 import { verificationService } from '@/services/VerificationService';
 import { toast } from 'sonner';
-Wallet, Upload, CheckCircle, AlertTriangle, GraduationCap,
+import {
+  Wallet, Upload, CheckCircle, AlertTriangle, GraduationCap,
   FileText, Sparkles, DollarSign, Users, StopCircle, FileUp
 } from 'lucide-react';
 
