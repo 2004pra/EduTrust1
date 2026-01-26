@@ -2,7 +2,7 @@ import { ethers, BrowserProvider, Contract, formatEther } from 'ethers';
 
 // Contract ABIs (minimal for frontend usage)
 export const CREDENTIAL_ABI = [
-  "function getCredential(uint256 tokenId) view returns (string title, string issuer, string ipfsHash, uint256 issuedAt, bool revoked)",
+  "function getCredential(uint256 tokenId) view returns (string title, string issuer, address issuerAddress, string ipfsHash, uint256 issuedAt, bool revoked)",
   "function balanceOf(address account, uint256 id) view returns (uint256 balance)",
   "function getStudentCredentials(address student) view returns (uint256[] tokenIds)",
   "function uri(uint256 tokenId) view returns (string uri)",
@@ -26,8 +26,8 @@ export const VERIFIER_ABI = [
 // Contract addresses - Updated from DEPLOYMENT.md
 export const CONTRACT_ADDRESSES = {
   monadTestnet: {
-    credential: "0x674C1C8955d7695F0548319FC892894268026C13",
-    verifier: "0x61dad19556beecc379B891347f053D06F3Ac253b",
+    credential: "0xf00DAc39d6cd1311f5D0EA121Afa61181E126740",
+    verifier: "0xf80f7Ec1a771e9390e13341AD56022EFb7DF4AD2",
   },
 };
 
@@ -147,7 +147,7 @@ export class VerificationService {
     }
 
     try {
-      const [title, issuer, ipfsHash, issuedAt, revoked] =
+      const [title, issuer, , ipfsHash, issuedAt, revoked] =
         await this.credentialContract.getCredential(tokenId);
 
       return {
@@ -367,7 +367,7 @@ export class VerificationService {
       const credentials: CredentialData[] = [];
       for (const tokenId of tokenIds) {
         try {
-          const [title, issuer, ipfsHash, issuedAt, revoked] =
+          const [title, issuer, , ipfsHash, issuedAt, revoked] =
             await this.credentialContract.getCredential(Number(tokenId));
 
           credentials.push({
@@ -408,7 +408,7 @@ export class VerificationService {
       // Search through tokens to find matching IPFS hash
       for (let tokenId = 0; tokenId <= maxTokenId; tokenId++) {
         try {
-          const [title, issuer, storedHash, issuedAt, revoked] =
+          const [title, issuer, , storedHash, issuedAt, revoked] =
             await this.credentialContract.getCredential(tokenId);
 
           // Check if this credential's IPFS hash matches
@@ -447,7 +447,7 @@ export class VerificationService {
     }
 
     try {
-      const [title, issuer, ipfsHash, issuedAt, revoked] =
+      const [title, issuer, , ipfsHash, issuedAt, revoked] =
         await this.credentialContract.getCredential(tokenId);
 
       return {

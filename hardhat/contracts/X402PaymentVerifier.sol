@@ -5,14 +5,23 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 interface IEduTrustCredential {
-    function getCredential(uint256 tokenId) external view returns (
-        string memory title,
-        string memory issuer,
-        string memory ipfsHash,
-        uint256 issuedAt,
-        bool revoked
-    );
-    function balanceOf(address account, uint256 id) external view returns (uint256);
+    function getCredential(
+        uint256 tokenId
+    )
+        external
+        view
+        returns (
+            string memory title,
+            string memory issuer,
+            address issuerAddress, // Updated Interface
+            string memory ipfsHash,
+            uint256 issuedAt,
+            bool revoked
+        );
+    function balanceOf(
+        address account,
+        uint256 id
+    ) external view returns (uint256);
 }
 
 /**
@@ -21,20 +30,20 @@ interface IEduTrustCredential {
  * Agents pay MON to access verified credential data
  */
 contract X402PaymentVerifier is Ownable, ReentrancyGuard {
-    
     // Credential contract reference
     IEduTrustCredential public credentialContract;
-    
+
     // Verification fee in wei (0.1 MON default)
     uint256 public verificationFee;
-    
-    // Fee recipient (can be treasury or student)
+
+    // Fee recipient (Platform Treasury)
     address public feeRecipient;
-    
-    // Student earnings split (80% to student, 20% to protocol)
-    uint256 public constant STUDENT_SHARE = 80;
-    uint256 public constant PROTOCOL_SHARE = 20;
-    
+
+    // Earnings Split
+    uint256 public constant STUDENT_SHARE = 25; // 25%
+    uint256 public constant ISSUER_SHARE = 10; // 10%
+    // Platform gets the rest (65%)
+
     // Verification records
     struct VerificationRecord {
         address verifier;
@@ -43,22 +52,22 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         uint256 timestamp;
         bytes32 accessHash;
     }
-    
+
     // Token ID => Verification records
     mapping(uint256 => VerificationRecord[]) public verificationHistory;
-    
+
     // Token ID => Total verifications
     mapping(uint256 => uint256) public verificationCount;
-    
+
     // Student => Total earnings
     mapping(address => uint256) public studentEarnings;
-    
+
     // Access grants: keccak256(verifier, tokenId) => expiry timestamp
     mapping(bytes32 => uint256) public accessGrants;
-    
+
     // Access duration (24 hours default)
     uint256 public accessDuration = 24 hours;
-    
+
     // Events
     event VerificationPaymentReceived(
         uint256 indexed tokenId,
@@ -67,16 +76,16 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         uint256 amount,
         bytes32 accessHash
     );
-    
+
     event AccessGranted(
         uint256 indexed tokenId,
         address indexed verifier,
         uint256 expiresAt
     );
-    
+
     event FeeUpdated(uint256 oldFee, uint256 newFee);
     event EarningsWithdrawn(address indexed student, uint256 amount);
-    
+
     constructor(
         address _credentialContract,
         uint256 _verificationFee,
@@ -86,7 +95,7 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         verificationFee = _verificationFee;
         feeRecipient = _feeRecipient;
     }
-    
+
     /**
      * @dev Request verification with x402 payment
      * Returns 402 status if payment insufficient
@@ -102,50 +111,63 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
             credentialContract.balanceOf(studentAddress, tokenId) > 0,
             "Student does not own this credential"
         );
-        
-        // Check credential is not revoked
-        (, , , , bool revoked) = credentialContract.getCredential(tokenId);
+
+        // Fetch credential details to get Issuer Address
+        (, , address issuerAddress, , , bool revoked) = credentialContract
+            .getCredential(tokenId);
         require(!revoked, "Credential has been revoked");
-        
+
         // x402 Payment Required check
         require(msg.value >= verificationFee, "402: Payment Required");
-        
+
         // Calculate splits
         uint256 studentAmount = (msg.value * STUDENT_SHARE) / 100;
-        uint256 protocolAmount = msg.value - studentAmount;
-        
-        // Credit student earnings
+        uint256 issuerAmount = (msg.value * ISSUER_SHARE) / 100;
+        uint256 platformAmount = msg.value - studentAmount - issuerAmount;
+
+        // 1. Credit student earnings (Pull payment)
         studentEarnings[studentAddress] += studentAmount;
-        
-        // Send protocol share
-        if (protocolAmount > 0) {
-            (bool sent, ) = feeRecipient.call{value: protocolAmount}("");
+
+        // 2. Pay Issuer (Push payment - instant)
+        if (issuerAmount > 0 && issuerAddress != address(0)) {
+            (bool sent, ) = issuerAddress.call{value: issuerAmount}("");
+            // We don't revert if issuer payment fails, to avoid blocking verification
+            // In prod, check return or use pull payment for them too.
+        }
+
+        // 3. Pay Platform (Push payment)
+        if (platformAmount > 0) {
+            (bool sent, ) = feeRecipient.call{value: platformAmount}("");
             require(sent, "Failed to send protocol fee");
         }
-        
+
         // Generate access hash
-        accessHash = keccak256(abi.encodePacked(
-            msg.sender,
-            tokenId,
-            block.timestamp,
-            block.prevrandao
-        ));
-        
+        accessHash = keccak256(
+            abi.encodePacked(
+                msg.sender,
+                tokenId,
+                block.timestamp,
+                block.prevrandao
+            )
+        );
+
         // Grant access
         bytes32 accessKey = keccak256(abi.encodePacked(msg.sender, tokenId));
         accessGrants[accessKey] = block.timestamp + accessDuration;
-        
+
         // Record verification
-        verificationHistory[tokenId].push(VerificationRecord({
-            verifier: msg.sender,
-            tokenId: tokenId,
-            paidAmount: msg.value,
-            timestamp: block.timestamp,
-            accessHash: accessHash
-        }));
-        
+        verificationHistory[tokenId].push(
+            VerificationRecord({
+                verifier: msg.sender,
+                tokenId: tokenId,
+                paidAmount: msg.value,
+                timestamp: block.timestamp,
+                accessHash: accessHash
+            })
+        );
+
         verificationCount[tokenId]++;
-        
+
         emit VerificationPaymentReceived(
             tokenId,
             msg.sender,
@@ -153,54 +175,62 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
             msg.value,
             accessHash
         );
-        
-        emit AccessGranted(tokenId, msg.sender, block.timestamp + accessDuration);
-        
+
+        emit AccessGranted(
+            tokenId,
+            msg.sender,
+            block.timestamp + accessDuration
+        );
+
         return accessHash;
     }
-    
+
     /**
      * @dev Check if verifier has active access to a credential
      */
-    function hasAccess(address verifier, uint256 tokenId) external view returns (bool) {
+    function hasAccess(
+        address verifier,
+        uint256 tokenId
+    ) external view returns (bool) {
         bytes32 accessKey = keccak256(abi.encodePacked(verifier, tokenId));
         return accessGrants[accessKey] > block.timestamp;
     }
-    
+
     /**
      * @dev Get access expiry time
      */
-    function getAccessExpiry(address verifier, uint256 tokenId) external view returns (uint256) {
+    function getAccessExpiry(
+        address verifier,
+        uint256 tokenId
+    ) external view returns (uint256) {
         bytes32 accessKey = keccak256(abi.encodePacked(verifier, tokenId));
         return accessGrants[accessKey];
     }
-    
+
     /**
      * @dev Withdraw student earnings
      */
     function withdrawEarnings() external nonReentrant {
         uint256 amount = studentEarnings[msg.sender];
         require(amount > 0, "No earnings to withdraw");
-        
+
         studentEarnings[msg.sender] = 0;
-        
+
         (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "Failed to send earnings");
-        
+
         emit EarningsWithdrawn(msg.sender, amount);
     }
-    
+
     /**
      * @dev Get verification history for a token
      */
-    function getVerificationHistory(uint256 tokenId) 
-        external 
-        view 
-        returns (VerificationRecord[] memory) 
-    {
+    function getVerificationHistory(
+        uint256 tokenId
+    ) external view returns (VerificationRecord[] memory) {
         return verificationHistory[tokenId];
     }
-    
+
     /**
      * @dev Update verification fee
      */
@@ -208,14 +238,14 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         emit FeeUpdated(verificationFee, newFee);
         verificationFee = newFee;
     }
-    
+
     /**
      * @dev Update access duration
      */
     function setAccessDuration(uint256 newDuration) external onlyOwner {
         accessDuration = newDuration;
     }
-    
+
     /**
      * @dev Update fee recipient
      */
@@ -223,14 +253,14 @@ contract X402PaymentVerifier is Ownable, ReentrancyGuard {
         require(newRecipient != address(0), "Invalid recipient");
         feeRecipient = newRecipient;
     }
-    
+
     /**
      * @dev Update credential contract
      */
     function setCredentialContract(address newContract) external onlyOwner {
         credentialContract = IEduTrustCredential(newContract);
     }
-    
+
     // Fallback to receive MON
     receive() external payable {}
 }

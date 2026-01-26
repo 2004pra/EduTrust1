@@ -50,7 +50,7 @@ export declare namespace X402PaymentVerifier {
 export interface X402PaymentVerifierInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | "PROTOCOL_SHARE"
+      | "ISSUER_SHARE"
       | "STUDENT_SHARE"
       | "accessDuration"
       | "accessGrants"
@@ -84,7 +84,7 @@ export interface X402PaymentVerifierInterface extends Interface {
   ): EventFragment;
 
   encodeFunctionData(
-    functionFragment: "PROTOCOL_SHARE",
+    functionFragment: "ISSUER_SHARE",
     values?: undefined
   ): string;
   encodeFunctionData(
@@ -170,7 +170,7 @@ export interface X402PaymentVerifierInterface extends Interface {
   ): string;
 
   decodeFunctionResult(
-    functionFragment: "PROTOCOL_SHARE",
+    functionFragment: "ISSUER_SHARE",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -385,7 +385,7 @@ export interface X402PaymentVerifier extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
-  PROTOCOL_SHARE: TypedContractMethod<[], [bigint], "view">;
+  ISSUER_SHARE: TypedContractMethod<[], [bigint], "view">;
 
   STUDENT_SHARE: TypedContractMethod<[], [bigint], "view">;
 
@@ -486,7 +486,7 @@ export interface X402PaymentVerifier extends BaseContract {
   ): T;
 
   getFunction(
-    nameOrSignature: "PROTOCOL_SHARE"
+    nameOrSignature: "ISSUER_SHARE"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "STUDENT_SHARE"

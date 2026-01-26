@@ -54,6 +54,11 @@ const _abi = [
         type: "string",
       },
       {
+        internalType: "address",
+        name: "issuerAddress",
+        type: "address",
+      },
+      {
         internalType: "string",
         name: "ipfsHash",
         type: "string",

@@ -19,7 +19,8 @@ contract EduTrustCredential is ERC1155, ERC1155Supply, AccessControl {
     // Credential metadata
     struct Credential {
         string title;
-        string issuer;
+        string issuer;      // Organization Name
+        address issuerAddress; // Wallet Address for Payment
         string ipfsHash;
         uint256 issuedAt;
         bool revoked;
@@ -76,6 +77,7 @@ contract EduTrustCredential is ERC1155, ERC1155Supply, AccessControl {
         credentials[tokenId] = Credential({
             title: title,
             issuer: issuerName,
+            issuerAddress: msg.sender, // Store the wallet address of the issuer
             ipfsHash: ipfsHash,
             issuedAt: block.timestamp,
             revoked: false
@@ -109,12 +111,13 @@ contract EduTrustCredential is ERC1155, ERC1155Supply, AccessControl {
     function getCredential(uint256 tokenId) external view returns (
         string memory title,
         string memory issuer,
+        address issuerAddress,
         string memory ipfsHash,
         uint256 issuedAt,
         bool revoked
     ) {
         Credential memory cred = credentials[tokenId];
-        return (cred.title, cred.issuer, cred.ipfsHash, cred.issuedAt, cred.revoked);
+        return (cred.title, cred.issuer, cred.issuerAddress, cred.ipfsHash, cred.issuedAt, cred.revoked);
     }
     
     /**
