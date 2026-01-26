@@ -299,6 +299,8 @@ export class VerificationService {
       const fee = await this.verifierContract.verificationFee();
 
       // Send transaction
+      console.log('Requesting verification for Token:', tokenId, 'Student:', studentAddress);
+
       const tx = await verifierWithSigner.requestVerification(
         tokenId,
         studentAddress,
@@ -413,6 +415,32 @@ export class VerificationService {
 
           // Check if this credential's IPFS hash matches
           if (storedHash && storedHash.toLowerCase() === ipfsHash.toLowerCase()) {
+            // Try to find the student (owner) address from the minting event
+            let ownerAddress = '';
+            try {
+              const filter = this.credentialContract.filters.CredentialMinted(tokenId);
+
+              // Optimize query: Scan only recent history to avoid RPC limits
+              const currentBlock = await this.provider?.getBlockNumber() || 0;
+              const startBlock = Math.max(0, currentBlock - 100000);
+
+              const events = await this.credentialContract.queryFilter(filter, startBlock, 'latest');
+              if (events.length > 0) {
+                // The student address is the second indexed parameter (index 1 in topics)
+                // In ethers v6, we can parse the event args
+                const event = events[0];
+                if ((event as any).args) {
+                  ownerAddress = (event as any).args[1]; // student is the second indexed param
+                  console.log('Found owner from event:', ownerAddress);
+                }
+              } else {
+                console.warn('No minting events found for token', tokenId);
+              }
+            } catch (e) {
+              console.warn('Could not query minting event for owner:', e);
+            }
+
+            console.log('Returning credential with owner:', ownerAddress);
             return {
               tokenId,
               title,
@@ -420,7 +448,7 @@ export class VerificationService {
               ipfsHash: storedHash,
               issuedAt: new Date(Number(issuedAt) * 1000),
               revoked,
-              owner: '', // Would need additional query
+              owner: ownerAddress,
             };
           }
         } catch (e) {
