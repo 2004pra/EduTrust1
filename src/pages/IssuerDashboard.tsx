@@ -12,9 +12,8 @@ import { Header } from '@/components/Header';
 import { computeFileCID } from '@/lib/ipfs';
 import { verificationService } from '@/services/VerificationService';
 import { toast } from 'sonner';
-import {
-  Wallet, Upload, CheckCircle, AlertTriangle, GraduationCap,
-  FileText, Sparkles, DollarSign, Users, StopCircle
+Wallet, Upload, CheckCircle, AlertTriangle, GraduationCap,
+  FileText, Sparkles, DollarSign, Users, StopCircle, FileUp
 } from 'lucide-react';
 
 const credentialTypes = [
@@ -75,6 +74,22 @@ export default function IssuerDashboard() {
     } catch (err) {
       toast.error("Failed to process file");
     }
+  };
+
+  const handleBulkFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const text = event.target?.result as string;
+      if (text) {
+        setBulkWallets(text);
+        const count = extractValidAddresses(text).length;
+        toast.success(`Loaded ${count} addresses from file`);
+      }
+    };
+    reader.readAsText(file);
   };
 
   const extractValidAddresses = (input: string) => {
@@ -299,9 +314,23 @@ export default function IssuerDashboard() {
 
               {isBulkMode ? (
                 <div className="space-y-2">
-                  <Label className="flex justify-between">
+                  <Label className="flex justify-between items-center">
                     <span>Student Wallet Addresses</span>
-                    <span className="text-xs text-muted-foreground">One per line or comma separated</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-muted-foreground mr-1">Paste or</span>
+                      <div className="relative">
+                        <input
+                          type="file"
+                          accept=".csv,.txt"
+                          onChange={handleBulkFileChange}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                        <Button variant="outline" size="sm" className="h-6 text-xs gap-1">
+                          <FileUp className="h-3 w-3" />
+                          Upload List
+                        </Button>
+                      </div>
+                    </div>
                   </Label>
                   <Textarea
                     placeholder="0x123...&#10;0x456...&#10;0x789..."
