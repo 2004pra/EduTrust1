@@ -3,40 +3,32 @@ import { Button } from '@/components/ui/button';
 import { FlowDiagram } from '@/components/FlowDiagram';
 import { Header } from '@/components/Header';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, ArrowRight, Shield, Bot, Coins, Zap, Globe, Lock } from 'lucide-react';
+import { Wallet, ArrowRight, Shield, Bot, Coins, Zap, Globe, Lock, GraduationCap, Building2, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AnimatedLogo } from '@/components/AnimatedLogo';
 
 const features = [
   {
     icon: Shield,
-    title: 'ERC-1155 Credentials',
-    description: 'Immutable, on-chain educational achievements that cannot be forged or revoked.',
+    title: 'Forgery-Proof Credentials',
+    description: 'Degrees are minted as ERC-1155 tokens on Monad. Once on-chain, they cannot be faked, altered, or unjustly revoked.',
   },
   {
     icon: Bot,
-    title: 'Agent-to-Agent Protocol',
-    description: 'Autonomous verification between hiring agents and student vaults via x402.',
+    title: 'AI Agent Ready',
+    description: 'Our x402 protocol allows AI hiring agents to autonomously verify a candidate\'s degree by paying a micro-fee in MON.',
   },
   {
     icon: Coins,
-    title: 'x402 Payments',
-    description: 'HTTP 402 payment standard for machine-native credential monetization.',
+    title: 'Student Monetization',
+    description: 'Students earn 80% of the verification fee every time an employer checks their credential. Turn your degree into an asset.',
   },
-  {
-    icon: Zap,
-    title: 'Monad Powered',
-    description: 'Built on Monad Testnet for high throughput and low latency verification.',
-  },
-  {
-    icon: Globe,
-    title: 'IPFS Storage',
-    description: 'Decentralized credential data storage with on-chain verification hashes.',
-  },
-  {
-    icon: Lock,
-    title: 'Trustless Access',
-    description: 'Payment confirmation required before credential data release. No intermediaries.',
-  },
+];
+
+const stats = [
+  { label: 'Credentials Minted', value: '12.4k' },
+  { label: 'Active Institutions', value: '142' },
+  { label: 'Verification Volume', value: '$2.1M' },
 ];
 
 export default function Index() {
@@ -45,61 +37,47 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      {/* Hero Section - Split Layout */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Effects */}
-        <div className="absolute inset-0 animated-gradient-bg" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-protocol/10 rounded-full blur-3xl" />
 
-        <div className="container mx-auto px-6 pt-24 pb-16 relative z-10">
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 animated-gradient-bg opacity-40" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[100px]" />
+
+        <div className="container mx-auto px-6 pt-24 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side - Content */}
+
+            {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="space-y-8"
             >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <span className="badge-protocol">
-                  <span className="h-1.5 w-1.5 rounded-full bg-protocol animate-pulse" />
-                  Built on Monad Testnet
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-              </motion.div>
-
-              {/* Headline */}
-              <div className="space-y-4">
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
-                  <span className="text-gradient">Trustless,</span>
-                  <br />
-                  <span className="text-foreground">Machine-Verifiable</span>
-                  <br />
-                  <span className="text-foreground">Education</span>
-                </h1>
-                <p className="text-xl text-muted-foreground max-w-lg">
-                  ERC-1155 credentials. x402 payments. Autonomous verification.
-                  The protocol for agent-to-agent credential exchange.
-                </p>
+                <span className="text-xs font-medium text-muted-foreground">Live on Monad Testnet</span>
               </div>
 
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-wrap gap-4"
-              >
+              <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+                Degrees that <br />
+                <span className="text-gradient hover:scale-105 transition-transform inline-block cursor-default">Pay You Back.</span>
+              </h1>
+
+              <p className="text-xl text-muted-foreground max-w-lg leading-relaxed">
+                The first decentralized credential network where students own their data and earn from every background check.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
                 {isConnected ? (
                   <Link to="/vault">
-                    <Button variant="hero" size="xl" className="gap-2">
-                      Open Your Vault
+                    <Button variant="hero" size="xl" className="gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-shadow">
+                      Go to Vault
                       <ArrowRight className="h-5 w-5" />
                     </Button>
                   </Link>
@@ -109,172 +87,145 @@ export default function Index() {
                     size="xl"
                     onClick={connect}
                     disabled={isConnecting}
-                    className="gap-2"
+                    className="gap-2 shadow-lg shadow-primary/20"
                   >
                     <Wallet className="h-5 w-5" />
-                    {isConnecting ? 'Connecting...' : 'Connect MetaMask'}
+                    {isConnecting ? 'Connecting...' : 'Connect Wallet'}
                   </Button>
                 )}
-                <Link to="/vault">
-                  <Button variant="outline" size="xl" className="gap-2">
-                    Explore Student Vault
-                    <ArrowRight className="h-5 w-5" />
+
+                <Link to="/issuer">
+                  <Button variant="outline" size="xl" className="group">
+                    For Universities
+                    <Building2 className="ml-2 h-4 w-4 group-hover:text-primary transition-colors" />
                   </Button>
                 </Link>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex gap-8 pt-8 border-t border-border"
-              >
-                <div>
-                  <p className="text-3xl font-bold text-gradient">12.4k</p>
-                  <p className="text-sm text-muted-foreground">Credentials Minted</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-gradient">847</p>
-                  <p className="text-sm text-muted-foreground">Active Agents</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-gradient">2.1k</p>
-                  <p className="text-sm text-muted-foreground">MON Settled</p>
-                </div>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Side - Flow Diagram */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="card-protocol p-8">
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-foreground">A2A Verification Flow</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    How credentials move from issuers to verified access
-                  </p>
-                </div>
-                <FlowDiagram />
               </div>
 
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, type: 'spring' }}
-                className="absolute -top-4 -right-4 px-4 py-2 rounded-xl bg-success/10 border border-success/20 backdrop-blur-sm"
-              >
-                <span className="text-sm font-medium text-success">Live on Testnet</span>
-              </motion.div>
+              {/* Mini Trust Signals */}
+              <div className="pt-8 border-t border-border/50 flex gap-8">
+                {stats.map((stat, i) => (
+                  <div key={i}>
+                    <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Graphic - Interactive Diagram */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="relative hidden lg:block"
+            >
+              <div className="card-protocol p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                  <AnimatedLogo className="h-16 w-16 text-white/10" />
+                </div>
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-6">Autonomous Verification Flow</h3>
+                  <FlowDiagram />
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Protocol-Grade Infrastructure
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Built for autonomous agents. Designed for trustless verification.
-              Powered by Monad's high-performance blockchain.
+      {/* --- ABOUT US / MISSION SECTION --- */}
+      <section className="py-32 bg-secondary/5 border-y border-border/50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why EduTrust?</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Academic fraud is a billion-dollar industry. Fake degrees undermine trust in institutions and devalue real achievements.
+              We built EduTrust to replace paper certificates with <strong>crypto-graphically secure assets</strong>.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
               <motion.div
-                key={feature.title}
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="card-protocol p-6"
+                transition={{ delay: i * 0.1 }}
+                className="card-protocol p-8 hover:bg-secondary/40 transition-colors group"
               >
-                <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="h-6 w-6 text-primary" />
+                <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-              Ready to Build the Future of Credentials?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Connect your wallet to start minting, storing, and monetizing educational achievements.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/issuer">
-                <Button variant="hero" size="lg" className="gap-2">
-                  Start Issuing
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/verify">
-                <Button variant="outline" size="lg" className="gap-2">
-                  Verify a Credential
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+      {/* --- HOW IT WORKS (Steps) --- */}
+      <section className="py-32">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold mb-16 text-center">Protocol Architecture</h2>
+
+          <div className="relative border-l-2 border-border/50 ml-4 md:ml-auto md:mx-auto max-w-3xl pl-8 md:pl-0 space-y-16">
+            {[
+              { title: "Minting", text: "Universities issue credentials as specialized NFTs using their exclusive DID keys. Students receive the token directly in their wallet." },
+              { title: "Verification", text: "Employers or AI Agents scan the wallet address. They request verification via the x402 header payment standard." },
+              { title: "Settlement", text: "The Smart Contract unlocks the verified data only after payment. 80% of the funds are routed instantly to the Student." }
+            ].map((step, i) => (
+              <div key={i} className="relative md:grid md:grid-cols-5 md:gap-8 items-center">
+                <div className="absolute -left-[41px] md:relative md:left-0 md:col-span-1 md:text-right">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground ring-4 ring-background">
+                    {i + 1}
+                  </span>
+                </div>
+                <div className="md:col-span-4">
+                  <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border py-12">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-lg bg-gradient-primary" />
-              <span className="text-lg font-bold">EduTrust</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              © 2024 EduTrust Protocol. Built on Monad Testnet.
-            </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Docs
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                GitHub
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Discord
-              </a>
-            </div>
+      {/* --- CTA FOOTER --- */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero opacity-80" />
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <h2 className="text-4xl font-bold mb-8">Join the Trust Network</h2>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/issuer">
+              <Button size="xl" className="bg-white text-black hover:bg-white/90 w-full sm:w-auto">
+                Register as Issuer
+              </Button>
+            </Link>
+            <Link to="/vault">
+              <Button size="xl" variant="outline" className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto">
+                Claim Student Vault
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-border py-12 bg-black/40 backdrop-blur-md">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-3">
+            <AnimatedLogo className="h-8 w-8" />
+            <span className="font-bold text-xl tracking-tight">EduTrust</span>
+          </div>
+          <p className="text-sm text-muted-foreground">© 2024 EduTrust Protocol. All rights reserved.</p>
+          <div className="flex gap-6">
+            <span className="h-2 w-2 rounded-full bg-green-500"></span>
+            <span className="text-sm text-muted-foreground">Systems Operational</span>
           </div>
         </div>
       </footer>
