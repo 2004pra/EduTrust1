@@ -74,9 +74,34 @@ export default function IssuerDashboard() {
 
     setIsMinting(true);
 
-    // 1. MINT ON BLOCKCHAIN
+    // 1. CHECK FOR DUPLICATES ON CHAIN
     const typeLabel = credentialTypes.find((t) => t.id === credentialType)?.label || "Credential";
     const issuerName = email || "Verified Institution";
+
+    try {
+      // Check if any token exists with this IPFS CID
+      const existing = await verificationService.findCredentialByIPFSHash(fileCid);
+
+      if (existing) {
+        // If it exists, check if THIS student already owns it
+        const balance = await verificationService.checkBalance(studentWallet, existing.tokenId);
+
+        if (balance > 0) {
+          toast.error("Duplicate Credential Check Failed", {
+            description: `Student already owns this credential (Token #${existing.tokenId}). Cannot issue twice.`
+          });
+          setIsMinting(false);
+          return;
+        } else {
+          // Optional: Warn that it exists globally but not for this student
+          console.log(`Credential content exists (Token #${existing.tokenId}) but student doesn't own it. Proceeding.`);
+        }
+      }
+    } catch (e) {
+      console.warn("Duplicate check failed, proceeding cautiously", e);
+    }
+
+    // 2. MINT ON BLOCKCHAIN
 
     try {
       const result = await verificationService.mintCredential(

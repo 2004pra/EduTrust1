@@ -81,6 +81,9 @@ export function NFTCard({
             <p className="text-xs text-muted-foreground">Total Earned</p>
             <p className="text-lg font-bold text-gradient">{totalEarned} MON</p>
           </div>
+          {/* IPFS Link removed for mock credentials phase */}
+          {/* Once real IPFS upload is integrated, we can uncomment this or check for valid URL */}
+          {/* 
           {ipfsCid && (
             <a 
               href={`https://ipfs.io/ipfs/${ipfsCid}`}
@@ -91,6 +94,7 @@ export function NFTCard({
               <ExternalLink className="h-4 w-4 text-muted-foreground" />
             </a>
           )}
+          */}
         </div>
       </div>
     </motion.div>

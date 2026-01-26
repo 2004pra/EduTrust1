@@ -466,6 +466,22 @@ export class VerificationService {
   }
 
   /**
+   * Check token balance of an address
+   */
+  async checkBalance(address: string, tokenId: number): Promise<number> {
+    await this.ensureInitialized();
+    if (!this.credentialContract) return 0;
+
+    try {
+      const balance = await this.credentialContract.balanceOf(address, tokenId);
+      return Number(balance);
+    } catch (error) {
+      console.error('Failed to check balance:', error);
+      return 0;
+    }
+  }
+
+  /**
    * Get verification count for a credential
    */
   async getVerificationCount(tokenId: number): Promise<number> {
