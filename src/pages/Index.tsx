@@ -336,7 +336,7 @@ export default function Index() {
             <AnimatedLogo className="h-8 w-8" />
             <span className="font-bold text-xl tracking-tight">EduTrust</span>
           </div>
-          <p className="text-sm text-muted-foreground">© 2024 EduTrust Protocol. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 EduTrust Protocol. All rights reserved.</p>
           <div className="flex gap-6">
             <span className="h-2 w-2 rounded-full bg-green-500"></span>
             <span className="text-sm text-muted-foreground">Systems Operational</span>
