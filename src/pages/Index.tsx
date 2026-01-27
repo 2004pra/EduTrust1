@@ -168,6 +168,120 @@ export default function Index() {
         </div>
       </section>
 
+      {/* --- FOR VERIFIERS SECTION --- */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/5 -skew-y-3 transform origin-left" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
+                <Zap className="h-4 w-4" />
+                <span className="text-xs font-bold uppercase tracking-wider">New Feature</span>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                Instant Background Checks for <span className="text-gradient">Modern Hiring</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Stop waiting weeks for university responses. EduTrust allows HR teams to verify candidate credentials instantly using blockchain data.
+              </p>
+
+              <div className="space-y-6 mb-8">
+                {[
+                  { title: "Bulk Verification", desc: "Upload 50+ candidate files at once. Get results in seconds." },
+                  { title: "Zero Fraud Risk", desc: "Cryptographically signed by universities. Impossible to forge." },
+                  { title: "Pay-Per-Use", desc: "No subscriptions. Just 0.1 MON per verification." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="mt-1 h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link to="/verify">
+                  <Button variant="hero" size="xl" className="gap-2">
+                    Start Verifying
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/bulk-verify">
+                  <Button variant="outline" size="xl" className="gap-2">
+                    Try Bulk Upload
+                    <Globe className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2 relative"
+            >
+              {/* Visual representation of verification */}
+              <div className="card-protocol p-8 border-primary/20 shadow-2xl shadow-primary/10">
+                <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+                  <div>
+                    <h3 className="text-xl font-bold">Verification Portal</h3>
+                    <p className="text-sm text-muted-foreground">Live Blockchain Status</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="h-3 w-3 rounded-full bg-red-500/20" />
+                    <div className="h-3 w-3 rounded-full bg-yellow-500/20" />
+                    <div className="h-3 w-3 rounded-full bg-green-500/20" />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    { name: "John Doe_Degree.pdf", status: "Verified", time: "2s ago" },
+                    { name: "Sarah Smith_Transcript.pdf", status: "Verified", time: "3s ago" },
+                    { name: "Fake_Certificate_v2.pdf", status: "Failed", time: "5s ago", error: true }
+                  ].map((row, i) => (
+                    <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-secondary/40 border border-white/5">
+                      <div className="flex items-center gap-3">
+                        <div className={`h-8 w-8 rounded-lg flex items-center justify-center ${row.error ? 'bg-red-500/10' : 'bg-green-500/10'}`}>
+                          {row.error ? <Lock className="h-4 w-4 text-red-400" /> : <Shield className="h-4 w-4 text-green-400" />}
+                        </div>
+                        <div>
+                          <p className="font-medium text-sm">{row.name}</p>
+                          <p className="text-xs text-muted-foreground">{row.time}</p>
+                        </div>
+                      </div>
+                      <div className={`px-2 py-1 rounded text-xs font-bold ${row.error ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'}`}>
+                        {row.status}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/10 flex justify-between items-center text-sm">
+                  <span className="text-muted-foreground">Total Processed: 3</span>
+                  <span className="font-mono text-primary">Cost: 0.3 MON</span>
+                </div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -z-10 top-1/2 -right-12 w-64 h-64 bg-primary/20 rounded-full blur-[80px]" />
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
       {/* --- HOW IT WORKS (Steps) --- */}
       <section className="py-32">
         <div className="container mx-auto px-6">

@@ -6,10 +6,22 @@ import { NFTCard } from '@/components/NFTCard';
 import { useWallet } from '@/contexts/WalletContext';
 import { Header } from '@/components/Header';
 import { verificationService, CredentialData } from '@/services/VerificationService';
-import { Wallet, Shield, Coins, AlertCircle, Loader2, TrendingUp, Download, Share2 } from 'lucide-react';
+import { Wallet, Shield, Coins, AlertCircle, Loader2, TrendingUp, Download, Share2, PlusCircle, Mail } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 // Type definition for credential display
 interface Credential {
@@ -167,6 +179,45 @@ export default function StudentVault() {
     navigate('/issuer');
   };
 
+  // Request Credential Form State
+  const [requestOpen, setRequestOpen] = useState(false);
+  const [requestData, setRequestData] = useState({
+    university: '',
+    name: '',
+    studentId: '',
+    degree: '',
+    email: ''
+  });
+
+  const handleRequestSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Construct email
+    const subject = `Credential Minting Request: ${requestData.name} (${requestData.studentId})`;
+    const body = `Dear Registrar,
+
+I would like to request the minting of my academic credential on the EduTrust Blockchain.
+
+Student Details:
+Name: ${requestData.name}
+Student ID: ${requestData.studentId}
+Degree/Course: ${requestData.degree}
+Wallet Address: ${address}
+
+Please issue the credential to my wallet address listed above.
+
+Sincerely,
+${requestData.name}`;
+
+    const mailtoLink = `mailto:${requestData.email || 'registrar@university.edu'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open email client
+    window.open(mailtoLink, '_blank');
+
+    setRequestOpen(false);
+    toast.success('Request email generated! Please send it to your university.');
+  };
+
   if (!isConnected) {
     return (
       <div className="min-h-screen bg-background relative overflow-hidden">
@@ -215,6 +266,82 @@ export default function StudentVault() {
           </div>
 
           <div className="flex gap-3">
+            <Dialog open={requestOpen} onOpenChange={setRequestOpen}>
+              <DialogTrigger asChild>
+                <Button variant="hero" size="sm" className="h-9 gap-2">
+                  <PlusCircle className="h-4 w-4" /> Request Credential
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Request New Credential</DialogTitle>
+                  <DialogDescription>
+                    Fill in your details to generate an official request email to your university registrar.
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleRequestSubmit} className="space-y-4 py-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="university">University / Institution</Label>
+                    <Select onValueChange={(val) => setRequestData({ ...requestData, university: val })} required>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select University" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="monad_university">Monad University</SelectItem>
+                        <SelectItem value="crypto_institute">Crypto Institute of Tech</SelectItem>
+                        <SelectItem value="blockchain_academy">Blockchain Academy</SelectItem>
+                        <SelectItem value="other">Other (Enter manually)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="registrar_email">Registrar Email (Optional)</Label>
+                    <Input
+                      id="registrar_email"
+                      placeholder="registrar@university.edu"
+                      value={requestData.email}
+                      onChange={(e) => setRequestData({ ...requestData, email: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input
+                      id="name"
+                      placeholder="John Doe"
+                      required
+                      value={requestData.name}
+                      onChange={(e) => setRequestData({ ...requestData, name: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="student_id">Student ID / Roll No</Label>
+                    <Input
+                      id="student_id"
+                      placeholder="S12345678"
+                      required
+                      value={requestData.studentId}
+                      onChange={(e) => setRequestData({ ...requestData, studentId: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="degree">Degree / Course Name</Label>
+                    <Input
+                      id="degree"
+                      placeholder="Bachelor of Computer Science"
+                      required
+                      value={requestData.degree}
+                      onChange={(e) => setRequestData({ ...requestData, degree: e.target.value })}
+                    />
+                  </div>
+                  <DialogFooter>
+                    <Button type="submit" className="gap-2 w-full">
+                      <Mail className="h-4 w-4" /> Generate Request Email
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
+            </Dialog>
+
             <Button variant="outline" size="sm" className="h-9 gap-2" onClick={handleShareVault}>
               <Share2 className="h-4 w-4" /> Share Vault
             </Button>
