@@ -14,6 +14,7 @@ import IssuerDashboard from "./pages/IssuerDashboard";
 import IssuerLogin from "./pages/IssuerLogin";
 import StudentVault from "./pages/StudentVault";
 import VerificationPage from "./pages/VerificationPage";
+import BulkVerificationPage from "./pages/BulkVerificationPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -80,6 +81,12 @@ const AppRoutes = () => {
         <Route path="/verify" element={
           <ProtectedRoute allowedRole="verifier">
             <VerificationPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/bulk-verify" element={
+          <ProtectedRoute allowedRole="verifier">
+            <BulkVerificationPage />
           </ProtectedRoute>
         } />
 

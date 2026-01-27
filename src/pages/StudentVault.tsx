@@ -8,6 +8,8 @@ import { Header } from '@/components/Header';
 import { verificationService, CredentialData } from '@/services/VerificationService';
 import { Wallet, Shield, Coins, AlertCircle, Loader2, TrendingUp, Download, Share2 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 // Type definition for credential display
 interface Credential {
@@ -42,6 +44,7 @@ const generateMockData = (currentBalance: number) => {
 
 export default function StudentVault() {
   const { isConnected, address, balance, connect, formatAddress } = useWallet();
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState<Credential[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -120,6 +123,50 @@ export default function StudentVault() {
     }
   };
 
+  // Handle Share Vault
+  const handleShareVault = async () => {
+    const vaultUrl = window.location.href;
+    try {
+      await navigator.clipboard.writeText(vaultUrl);
+      toast.success('Vault URL copied to clipboard!');
+    } catch (err) {
+      toast.error('Failed to copy URL');
+    }
+  };
+
+  // Handle Export Data
+  const handleExportData = () => {
+    const exportData = {
+      address,
+      earnings,
+      credentials: credentials.map(c => ({
+        title: c.title,
+        issuer: c.issuer,
+        tokenId: c.tokenId,
+        ipfsCid: c.ipfsCid,
+        timesVerified: c.timesVerified,
+        totalEarned: c.totalEarned,
+      })),
+      exportedAt: new Date().toISOString(),
+    };
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `edutrust-vault-${formatAddress(address!)}-${Date.now()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success('Vault data exported successfully!');
+  };
+
+  // Handle Learn How to Request
+  const handleLearnRequest = () => {
+    navigate('/issuer');
+  };
+
   if (!isConnected) {
     return (
       <div className="min-h-screen bg-background relative overflow-hidden">
@@ -168,10 +215,10 @@ export default function StudentVault() {
           </div>
 
           <div className="flex gap-3">
-            <Button variant="outline" size="sm" className="h-9 gap-2">
+            <Button variant="outline" size="sm" className="h-9 gap-2" onClick={handleShareVault}>
               <Share2 className="h-4 w-4" /> Share Vault
             </Button>
-            <Button variant="outline" size="sm" className="h-9 gap-2">
+            <Button variant="outline" size="sm" className="h-9 gap-2" onClick={handleExportData}>
               <Download className="h-4 w-4" /> Export Data
             </Button>
           </div>
@@ -298,7 +345,7 @@ export default function StudentVault() {
               <p className="text-muted-foreground max-w-sm mx-auto mb-6">
                 You haven't received any credentials yet. Ask your university to issue credentials to your wallet address.
               </p>
-              <Button variant="outline">Learn How to Request</Button>
+              <Button variant="outline" onClick={handleLearnRequest}>Learn How to Request</Button>
             </div>
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

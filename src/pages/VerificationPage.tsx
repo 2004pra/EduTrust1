@@ -189,10 +189,19 @@ export default function VerificationPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-3xl font-bold mb-4">Credential Verification</h1>
-            <p className="text-muted-foreground max-w-lg mx-auto">
+            <p className="text-muted-foreground max-w-lg mx-auto mb-4">
               Upload a credential document to verify its authenticity using x402 payment protocol.
               Pay $MON to access verified IPFS data.
             </p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => window.location.href = '/bulk-verify'}
+              className="gap-2"
+            >
+              <FileText className="h-4 w-4" />
+              Need to verify multiple credentials? Try Bulk Verification
+            </Button>
           </div>
 
           {/* Stepper */}
