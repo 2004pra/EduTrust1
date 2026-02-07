@@ -62,6 +62,11 @@ export default function NotesMarketplace() {
         fetchListings();
     }, []);
 
+    const formatAddress = (address: string): string => {
+        if (!address) return 'Unknown';
+        return `${address.slice(0, 6)}...${address.slice(-4)}`;
+    };
+
     const fetchListings = async () => {
         setIsLoading(true);
         try {
@@ -79,15 +84,38 @@ export default function NotesMarketplace() {
                     creator: formatAddress(listing.note?.creator_address || listing.seller_address),
                     previewImage: listing.note?.preview_hash ? getIpfsUrl(listing.note.preview_hash) : null,
                     previewHash: listing.note?.preview_hash || null,
-                    sales: 0, // Would need to track this
+                    sales: 0,
                     listedAt: listing.listed_at,
                 }));
                 setNotes(displayNotes);
             } else {
-                // If no DB data, try to fetch from blockchain
-                // This is a backup for when the app is fresh
-                console.log('No listings in database, checking blockchain...');
-                setNotes([]);
+                // If no DB data, fetch directly from blockchain!
+                console.log('No listings in database, fetching from blockchain...');
+                try {
+                    const contractListings = await getContractListings(0, 50);
+                    if (contractListings.length > 0) {
+                        const displayNotes: DisplayNote[] = contractListings.map(listing => ({
+                            tokenId: listing.tokenId,
+                            title: listing.note?.title || `Note #${listing.tokenId}`,
+                            subject: listing.note?.subject || 'Other',
+                            description: listing.note?.description || '',
+                            price: listing.price,
+                            seller: formatAddress(listing.seller),
+                            creator: formatAddress(listing.note?.creator || listing.seller),
+                            previewImage: listing.note?.previewHash ? getIpfsUrl(listing.note.previewHash) : null,
+                            previewHash: listing.note?.previewHash || null,
+                            sales: 0,
+                            listedAt: new Date(listing.listedAt * 1000).toISOString(),
+                        }));
+                        setNotes(displayNotes);
+                        console.log(`Found ${displayNotes.length} listings on blockchain!`);
+                    } else {
+                        setNotes([]);
+                    }
+                } catch (blockchainError) {
+                    console.error('Error fetching from blockchain:', blockchainError);
+                    setNotes([]);
+                }
             }
         } catch (error) {
             console.error('Error fetching listings:', error);
@@ -95,11 +123,6 @@ export default function NotesMarketplace() {
         } finally {
             setIsLoading(false);
         }
-    };
-
-    const formatAddress = (address: string): string => {
-        if (!address) return 'Unknown';
-        return `${address.slice(0, 6)}...${address.slice(-4)}`;
     };
 
     // Filter and sort notes

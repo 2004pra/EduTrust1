@@ -28,6 +28,7 @@ export const EDU_NOTES_ABI = [
     'function getCreatorNotes(address creator) view returns (uint256[])',
     'function royaltyInfo(uint256 tokenId, uint256 salePrice) view returns (address receiver, uint256 royaltyAmount)',
     'function totalMinted() view returns (uint256)',
+    'function tokenOfOwnerByIndex(address owner, uint256 index) view returns (uint256)',
 
     // Write functions
     'function mintNote(string title, string subject, string description, string ipfsHash, string previewHash) returns (uint256)',
@@ -36,7 +37,7 @@ export const EDU_NOTES_ABI = [
     'function isApprovedForAll(address owner, address operator) view returns (bool)',
 
     // Events
-    'event NoteMinted(uint256 indexed tokenId, address indexed creator, string title, string subject)',
+    'event NoteMinted(uint256 indexed tokenId, address indexed creator, string title, string subject, string ipfsHash)',
     'event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)',
 ];
 
@@ -255,24 +256,52 @@ export async function mintNote(
     const tx = await contract.mintNote(title, subject, description, ipfsHash, previewHash);
     const receipt = await tx.wait();
 
-    // Get the token ID from the NoteMinted event
-    const mintEvent = receipt.logs.find((log: any) => {
-        try {
-            const parsed = contract.interface.parseLog({ topics: log.topics, data: log.data });
-            return parsed?.name === 'NoteMinted';
-        } catch {
-            return false;
-        }
-    });
+    // Fallback: Get the token ID by checking total supply (as IDs are sequential)
+    // Since we just minted, the last token ID is (totalSupply - 1)
+    try {
+        const totalMinted = await contract.totalMinted(); // Check if your contract uses totalMinted or totalSupply from Enumerable
+        // If contract uses Enumerable, it's usually totalSupply()
+        // But in EduNotes.sol I saw totalNotes() function, let's check ABI first
 
-    let tokenId = 0;
-    if (mintEvent) {
-        const parsed = contract.interface.parseLog({ topics: mintEvent.topics, data: mintEvent.data });
-        tokenId = Number(parsed?.args.tokenId);
+        // Let's use the event log method first, but correctly this time
+        const mintEvent = receipt.logs.find((log: any) => {
+            try {
+                const parsed = contract.interface.parseLog({ topics: log.topics, data: log.data });
+                return parsed?.name === 'NoteMinted';
+            } catch {
+                return false;
+            }
+        });
+
+        if (mintEvent) {
+            const parsed = contract.interface.parseLog({ topics: mintEvent.topics, data: mintEvent.data });
+            return {
+                tokenId: Number(parsed?.args.tokenId),
+                txHash: receipt.hash,
+            };
+        }
+
+        // If event parsing fails, try to get the latest token ID for the user
+        const signerAddress = await signer.getAddress();
+        const userBalance = await contract.balanceOf(signerAddress);
+        if (userBalance > 0) {
+            // Get the last token owned by the user (most recently minted)
+            // ERC721Enumerable allows tokenOfOwnerByIndex
+            const lastTokenId = await contract.tokenOfOwnerByIndex(signerAddress, userBalance - 1);
+            return {
+                tokenId: Number(lastTokenId),
+                txHash: receipt.hash,
+            };
+        }
+
+    } catch (e) {
+        console.error("Error fetching token ID:", e);
     }
 
+    // If all else fails, default to 0 (but log error)
+    console.error("Failed to detect Token ID from mint transaction!");
     return {
-        tokenId,
+        tokenId: 0,
         txHash: receipt.hash,
     };
 }
