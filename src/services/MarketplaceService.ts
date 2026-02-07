@@ -259,9 +259,6 @@ export async function mintNote(
     // Fallback: Get the token ID by checking total supply (as IDs are sequential)
     // Since we just minted, the last token ID is (totalSupply - 1)
     try {
-        const totalMinted = await contract.totalMinted(); // Check if your contract uses totalMinted or totalSupply from Enumerable
-        // If contract uses Enumerable, it's usually totalSupply()
-        // But in EduNotes.sol I saw totalNotes() function, let's check ABI first
 
         // Let's use the event log method first, but correctly this time
         const mintEvent = receipt.logs.find((log: any) => {
@@ -284,10 +281,11 @@ export async function mintNote(
         // If event parsing fails, try to get the latest token ID for the user
         const signerAddress = await signer.getAddress();
         const userBalance = await contract.balanceOf(signerAddress);
-        if (userBalance > 0) {
+        if (userBalance > 0n) {
             // Get the last token owned by the user (most recently minted)
             // ERC721Enumerable allows tokenOfOwnerByIndex
-            const lastTokenId = await contract.tokenOfOwnerByIndex(signerAddress, userBalance - 1);
+            const index = userBalance - 1n;
+            const lastTokenId = await contract.tokenOfOwnerByIndex(signerAddress, index);
             return {
                 tokenId: Number(lastTokenId),
                 txHash: receipt.hash,
