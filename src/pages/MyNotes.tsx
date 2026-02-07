@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import {
     BookOpen, Plus, DollarSign, TrendingUp, ShoppingCart,
     Wallet, Loader2, Download, Eye, Trash2,
-    ArrowLeft, Package,
+    ArrowLeft, Package, RotateCcw,
     Tag
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -18,6 +18,7 @@ import {
     getUserEarnings,
     withdrawEarnings,
     delistNote,
+    burnNote,
     NoteMetadata,
     MARKETPLACE_ADDRESSES,
     MARKETPLACE_CONFIG
@@ -25,6 +26,7 @@ import {
 import {
     getUserTransactions,
     getNoteByTokenId,
+    getNotes,
     DbNote
 } from '@/services/SupabaseService';
 import { getIpfsUrl } from '@/services/IpfsService';
@@ -58,6 +60,16 @@ export default function MyNotes() {
     const [activeTab, setActiveTab] = useState<'created' | 'purchased' | 'sales'>('created');
     const [createdNotes, setCreatedNotes] = useState<CreatedNote[]>([]);
     const [purchasedNotes, setPurchasedNotes] = useState<PurchasedNote[]>([]);
+    // Load hidden notes from local storage safely
+    const [hiddenNotes, setHiddenNotes] = useState<number[]>(() => {
+        try {
+            const saved = localStorage.getItem('hiddenNotes');
+            return saved ? JSON.parse(saved) : [];
+        } catch (e) {
+            console.error("Error parsing hidden notes:", e);
+            return [];
+        }
+    });
     const [salesHistory, setSalesHistory] = useState<SaleRecord[]>([]);
     const [pendingBalance, setPendingBalance] = useState<number>(0);
     const [isLoading, setIsLoading] = useState(false);
@@ -85,33 +97,43 @@ export default function MyNotes() {
                 setPendingBalance(0);
             }
 
-            // 2. Fetch Created Notes & Status
+            // 2. Fetch Created Notes & Status (Hybrid: Supabase + Chain)
             try {
-                // Get all token IDs created by user from blockchain
-                const createdTokenIds = await getCreatorNotes(address);
+                // Fetch basic metadata from Supabase (fast & stable)
+                const dbNotes = await getNotes({ creator: address });
+                console.log("Supabase Notes:", dbNotes);
 
-                const notesPromises = createdTokenIds.map(async (tokenId) => {
+                const notesPromises = dbNotes.map(async (dbNote) => {
+                    const tokenId = dbNote.token_id;
                     try {
-                        const metadata = await getNoteMetadata(tokenId);
-
-                        // Default to unlisted/in-wallet
+                        // Default values from DB
                         let status: 'listed' | 'unlisted' | 'sold' = 'unlisted';
                         let price = undefined;
                         let listing = null;
+                        let currentOwner = dbNote.creator_address; // Default
 
+                        // Fetch dynamic status from Blockchain
                         try {
+                            // Try to get listing first
                             listing = await getListing(tokenId);
+
+                            // Try to get owner
+                            // Optimisation: If listing exists, we know it's in marketplace.
+                            // If not listed, we should check owner.
+                            const details = await getNoteMetadata(tokenId).catch(() => null);
+                            if (details) currentOwner = details.currentOwner;
+
                             if (listing && listing.isActive) {
                                 status = 'listed';
                                 price = listing.price;
                             }
                         } catch (e) {
-                            // Ignore if listing not found
+                            console.warn(`Chain fetch failed for #${tokenId}, using DB defaults`, e);
                         }
 
-                        // Use case-insensitive comparison for addresses
-                        const isOwner = metadata.currentOwner.toLowerCase() === address.toLowerCase();
-                        const isMarketplace = metadata.currentOwner.toLowerCase() === MARKETPLACE_ADDRESSES.NotesMarketplace.toLowerCase();
+                        // Determine status
+                        const isOwner = currentOwner?.toLowerCase() === address.toLowerCase();
+                        const isMarketplace = currentOwner?.toLowerCase() === MARKETPLACE_ADDRESSES.NotesMarketplace.toLowerCase();
 
                         if (!isOwner && !isMarketplace) {
                             // If I don't own it and it's not in marketplace, I sold/transferred it
@@ -123,22 +145,47 @@ export default function MyNotes() {
                         }
 
                         return {
-                            ...metadata,
+                            tokenId,
+                            title: dbNote.title,
+                            subject: dbNote.subject,
+                            description: dbNote.description,
+                            ipfsHash: dbNote.ipfs_hash,
+                            previewHash: dbNote.preview_hash || '',
+                            creator: dbNote.creator_address,
+                            createdAt: new Date(dbNote.created_at).getTime() / 1000,
+                            currentOwner,
                             status,
                             price,
                             sales: status === 'sold' ? 1 : 0,
                             earnings: listing && status === 'sold' ? (parseFloat(listing.price) * 0.9).toFixed(2) : '0'
                         } as CreatedNote;
                     } catch (e) {
-                        console.error(`Error fetching note ${tokenId}:`, e);
-                        return null;
+                        console.error(`Error processing note ${tokenId}:`, e);
+                        return {
+                            tokenId,
+                            title: dbNote.title || `Note #${tokenId}`,
+                            subject: 'Error',
+                            description: 'Processing error',
+                            ipfsHash: '',
+                            previewHash: '',
+                            creator: address,
+                            createdAt: Date.now() / 1000,
+                            currentOwner: address,
+                            status: 'unlisted',
+                            sales: 0,
+                            earnings: '0'
+                        } as CreatedNote;
                     }
                 });
 
-                const resolvedNotes = (await Promise.all(notesPromises)).filter((n): n is CreatedNote => n !== null);
-                setCreatedNotes(resolvedNotes.sort((a, b) => b.createdAt - a.createdAt));
+                const resolvedNotes = await Promise.all(notesPromises);
+
+                // Deduplicate by Token ID
+                const uniqueNotes = Array.from(new Map(resolvedNotes.map(note => [note.tokenId, note])).values());
+
+                setCreatedNotes(uniqueNotes.sort((a, b) => b.createdAt - a.createdAt));
             } catch (e) {
-                console.error("Error fetching created notes:", e);
+                console.error("Error fetching created notes from Supabase:", e);
             }
 
 
@@ -249,6 +296,23 @@ export default function MyNotes() {
         }
     };
 
+    const handleHide = (tokenId: number) => {
+        if (!confirm("Hide this note from view? (It will still exist on-chain)")) return;
+        const newHidden = [...hiddenNotes, tokenId];
+        setHiddenNotes(newHidden);
+        localStorage.setItem('hiddenNotes', JSON.stringify(newHidden));
+        toast({ title: "Note Hidden" });
+    };
+
+    const handleUnhideAll = () => {
+        if (!confirm("Unhide all hidden notes?")) return;
+        setHiddenNotes([]);
+        localStorage.removeItem('hiddenNotes');
+        toast({ title: "Notes Unhidden" });
+    }
+
+    const visibleCreatedNotes = createdNotes.filter(n => !hiddenNotes.includes(n.tokenId));
+
     const totalEarnings = salesHistory.reduce((sum, sale) => sum + parseFloat(sale.yourEarnings), 0);
     const totalSales = salesHistory.length;
 
@@ -308,12 +372,24 @@ export default function MyNotes() {
                                 Manage your minted notes, purchases, and earnings
                             </p>
                         </div>
-                        <Link to="/mint-note">
-                            <Button className="gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500">
-                                <Plus className="h-4 w-4" />
-                                Mint New Notes
+                        <div className="flex gap-3">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() => fetchData()}
+                                disabled={isLoading}
+                                className="border-purple-500/20 hover:bg-purple-500/10"
+                                title="Refresh Data"
+                            >
+                                <RotateCcw className={`h-4 w-4 text-purple-400 ${isLoading ? 'animate-spin' : ''}`} />
                             </Button>
-                        </Link>
+                            <Link to="/mint-note">
+                                <Button className="gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500">
+                                    <Plus className="h-4 w-4" />
+                                    Mint New Notes
+                                </Button>
+                            </Link>
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -336,7 +412,7 @@ export default function MyNotes() {
                         },
                         {
                             label: "Notes Created",
-                            value: createdNotes.length.toString(),
+                            value: visibleCreatedNotes.length.toString(),
                             icon: BookOpen,
                             color: "purple"
                         },
@@ -409,7 +485,7 @@ export default function MyNotes() {
             <section className="container mx-auto px-6 pb-4">
                 <div className="flex gap-2 border-b border-white/10">
                     {[
-                        { id: 'created', label: 'Created Notes', count: createdNotes.length },
+                        { id: 'created', label: 'Created Notes', count: visibleCreatedNotes.length },
                         { id: 'purchased', label: 'Purchased', count: purchasedNotes.length },
                         { id: 'sales', label: 'Sales History', count: salesHistory.length }
                     ].map((tab) => (
@@ -441,7 +517,7 @@ export default function MyNotes() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                             >
-                                {createdNotes.length === 0 ? (
+                                {visibleCreatedNotes.length === 0 ? (
                                     <div className="text-center py-16">
                                         <BookOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
                                         <h3 className="text-xl font-bold mb-2">No Notes Created Yet</h3>
@@ -457,7 +533,7 @@ export default function MyNotes() {
                                     </div>
                                 ) : (
                                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                        {createdNotes.map((note, i) => (
+                                        {visibleCreatedNotes.map((note, i) => (
                                             <motion.div
                                                 key={note.tokenId}
                                                 initial={{ opacity: 0, y: 20 }}
@@ -479,7 +555,12 @@ export default function MyNotes() {
                                                     </span>
                                                 </div>
 
-                                                <h3 className="font-bold mb-1 line-clamp-1">{note.title}</h3>
+                                                <div className="flex justify-between items-start mb-1">
+                                                    <h3 className="font-bold line-clamp-1 flex-1">{note.title}</h3>
+                                                    <span className="text-xs font-mono text-muted-foreground bg-white/5 px-1.5 py-0.5 rounded ml-2">
+                                                        #{note.tokenId}
+                                                    </span>
+                                                </div>
                                                 <p className="text-sm text-muted-foreground mb-4">{note.subject}</p>
 
                                                 <div className="grid grid-cols-2 gap-2 mb-4">
@@ -506,12 +587,23 @@ export default function MyNotes() {
                                                         </Button>
                                                     )}
                                                     {note.status === 'unlisted' && (
-                                                        <Link to={`/marketplace`} className="flex-1">
-                                                            <Button className="w-full gap-2 bg-gradient-to-r from-purple-600 to-pink-600">
-                                                                <DollarSign className="h-3 w-3" />
-                                                                List for Sale
+                                                        <div className="flex gap-2 w-full">
+                                                            <Link to={`/marketplace`} className="flex-1">
+                                                                <Button className="w-full gap-2 bg-gradient-to-r from-purple-600 to-pink-600">
+                                                                    <DollarSign className="h-3 w-3" />
+                                                                    List
+                                                                </Button>
+                                                            </Link>
+                                                            <Button
+                                                                variant="outline"
+                                                                size="icon"
+                                                                onClick={() => handleHide(note.tokenId)}
+                                                                className="text-red-400 border-red-500/30 hover:bg-red-500/10 hover:text-red-500"
+                                                                title="Hide Note"
+                                                            >
+                                                                <Trash2 className="h-4 w-4" />
                                                             </Button>
-                                                        </Link>
+                                                        </div>
                                                     )}
                                                 </div>
                                             </motion.div>

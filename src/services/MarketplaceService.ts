@@ -23,8 +23,8 @@ export const EDU_NOTES_ABI = [
     'function ownerOf(uint256 tokenId) view returns (address)',
     'function balanceOf(address owner) view returns (uint256)',
     'function tokenURI(uint256 tokenId) view returns (string)',
-    'function getNoteBasic(uint256 tokenId) view returns (string title, string subject, address creator, uint256 createdAt)',
-    'function getNoteDetails(uint256 tokenId) view returns (string description, string ipfsHash, string previewHash)',
+    'function getNoteBasic(uint256 tokenId) view returns (string title, string subject, string description, address creator, uint256 createdAt)',
+    'function getNoteDetails(uint256 tokenId) view returns (string ipfsHash, string previewHash, address currentOwner)',
     'function getCreatorNotes(address creator) view returns (uint256[])',
     'function royaltyInfo(uint256 tokenId, uint256 salePrice) view returns (address receiver, uint256 royaltyAmount)',
     'function totalMinted() view returns (uint256)',
@@ -35,16 +35,25 @@ export const EDU_NOTES_ABI = [
     'function approve(address to, uint256 tokenId)',
     'function setApprovalForAll(address operator, bool approved)',
     'function isApprovedForAll(address owner, address operator) view returns (bool)',
+    'function safeTransferFrom(address from, address to, uint256 tokenId)',
 
     // Events
     'event NoteMinted(uint256 indexed tokenId, address indexed creator, string title, string subject, string ipfsHash)',
     'event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)',
 ];
 
+// ... (skipping some unchanged lines if possible, but replace_file_content works better with contiguous blocks)
+// I will just replace the ABI definition block first.
+// Wait, I need to update getNoteMetadata too, which is further down.
+// I will do two replaces or one big one? 
+// getNoteMetadata is around line 138. ABI is around line 20.
+// I'll do ABI first.
+
+
 // NotesMarketplace ABI (Only the functions we need)
 export const NOTES_MARKETPLACE_ABI = [
     // Read functions
-    'function listings(uint256 tokenId) view returns (uint256 tokenId, address seller, uint256 price, bool isActive, uint256 listedAt)',
+    'function listings(uint256 tokenId) view returns (address seller, uint256 price, uint256 listedAt, bool isActive)',
     'function earnings(address) view returns (uint256)',
     'function platformFee() view returns (uint256)',
     'function minPrice() view returns (uint256)',
@@ -141,22 +150,21 @@ async function getMarketplaceContract(signer?: ethers.Signer) {
 export async function getNoteMetadata(tokenId: number): Promise<NoteMetadata> {
     const contract = await getEduNotesContract();
 
-    const [basic, details, owner] = await Promise.all([
+    const [basic, details] = await Promise.all([
         contract.getNoteBasic(tokenId),
         contract.getNoteDetails(tokenId),
-        contract.ownerOf(tokenId),
     ]);
 
     return {
         tokenId,
         title: basic.title,
         subject: basic.subject,
+        description: basic.description || '',
         creator: basic.creator,
         createdAt: Number(basic.createdAt),
-        description: details.description,
         ipfsHash: details.ipfsHash,
         previewHash: details.previewHash,
-        currentOwner: owner,
+        currentOwner: details.currentOwner,
     };
 }
 
@@ -181,7 +189,7 @@ export async function getListing(tokenId: number): Promise<NoteListing | null> {
     }
 
     return {
-        tokenId: Number(listing.tokenId),
+        tokenId: tokenId, // tokenId is passed in, not returned
         seller: listing.seller,
         price: ethers.formatEther(listing.price),
         isActive: listing.isActive,
@@ -423,4 +431,22 @@ export async function isCorrectNetwork(): Promise<boolean> {
     } catch {
         return false;
     }
+}
+
+/**
+ * Permanently remove (burn) a note by transferring to dead address
+ */
+export async function burnNote(tokenId: number): Promise<string> {
+    const signer = await getSigner();
+    // Get contract with signer - need to recreate instance to be sure we have signer
+    const contract = new Contract(MARKETPLACE_ADDRESSES.EduNotes, EDU_NOTES_ABI, signer);
+
+    const ownerAddress = await signer.getAddress();
+    const BURN_ADDRESS = "0x000000000000000000000000000000000000dEaD";
+
+    // Call safeTransferFrom. In ethers v6, we access overloaded functions via string key
+    const tx = await contract["safeTransferFrom(address,address,uint256)"](ownerAddress, BURN_ADDRESS, tokenId);
+    const receipt = await tx.wait();
+
+    return receipt.hash;
 }
