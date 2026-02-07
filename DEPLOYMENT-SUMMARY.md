@@ -52,6 +52,48 @@ https://explorer.monad.xyz/address/0x61dad19556beecc379B891347f053D06F3Ac253b
 
 ---
 
+### 3️⃣ EduNotes (Notes NFT)
+```
+Address: 0x15B93e8305D4653C2042927D993D5Dc47DBD9C8f
+Type: ERC-721 NFT with EIP-2981 Royalties
+Purpose: Mint study notes as NFTs
+```
+
+**Explorer Link:**  
+https://explorer.monad.xyz/address/0x15B93e8305D4653C2042927D993D5Dc47DBD9C8f
+
+**Features:**
+- ✅ ERC-721 compliant NFT
+- ✅ EIP-2981 royalties (5%)
+- ✅ Creator tracking
+- ✅ Metadata storage (IPFS)
+
+---
+
+### 4️⃣ NotesMarketplace
+```
+Address: 0x949f11dC2415C8b42d58f3d97F86762E75bA6F58
+Type: NFT Marketplace
+Purpose: Buy and sell study notes
+```
+
+**Explorer Link:**  
+https://explorer.monad.xyz/address/0x949f11dC2415C8b42d58f3d97F86762E75bA6F58
+
+**Configuration:**
+- Price Range: 10 - 100 MON
+- Platform Fee: 5% per sale
+- Creator Royalty: 5% on resales
+- Minimum Withdrawal: 50 MON
+- Fee Recipient: 0x381af6Ee9D93C9DAF539D3392416FC826FAF298B
+
+**Frontend Routes:**
+- `/marketplace` - Browse and buy notes
+- `/mint-note` - Create and list new notes
+- `/my-notes` - Manage your notes and earnings
+
+---
+
 ## 🧪 Test Transaction
 
 A test credential was successfully minted to verify everything works:

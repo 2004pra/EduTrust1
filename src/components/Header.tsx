@@ -28,15 +28,18 @@ export function Header() {
   };
 
   const getNavLinks = () => {
+    // Marketplace link is always visible
+    const commonLinks = [{ path: '/marketplace', label: 'Marketplace' }];
+
     switch (role) {
       case 'student':
-        return [{ path: '/vault', label: 'My Vault' }];
+        return [...commonLinks, { path: '/vault', label: 'My Vault' }];
       case 'issuer':
-        return [{ path: '/issuer', label: 'Issuer Dashboard' }];
+        return [...commonLinks, { path: '/issuer', label: 'Issuer Dashboard' }];
       case 'verifier':
-        return [{ path: '/verify', label: 'Verification Portal' }];
+        return [...commonLinks, { path: '/verify', label: 'Verification Portal' }];
       default:
-        return [];
+        return commonLinks;
     }
   };
 
@@ -77,8 +80,8 @@ export function Header() {
                 key={link.path}
                 to={link.path}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${location.pathname === link.path
-                    ? 'bg-secondary text-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                  ? 'bg-secondary text-foreground'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                   }`}
               >
                 {link.label}

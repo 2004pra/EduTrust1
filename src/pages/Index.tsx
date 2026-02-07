@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { FlowDiagram } from '@/components/FlowDiagram';
 import { Header } from '@/components/Header';
 import { useWallet } from '@/contexts/WalletContext';
-import { Wallet, ArrowRight, Shield, Bot, Coins, Zap, Globe, Lock, GraduationCap, Building2, CheckCircle2 } from 'lucide-react';
+import { Wallet, ArrowRight, Shield, Bot, Coins, Zap, Globe, Lock, GraduationCap, Building2, CheckCircle2, BookOpen, TrendingUp, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AnimatedLogo } from '@/components/AnimatedLogo';
 
@@ -279,6 +279,156 @@ export default function Index() {
             </motion.div>
 
           </div>
+        </div>
+      </section>
+
+      {/* --- NOTES MARKETPLACE SECTION --- */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-purple-900/5 to-transparent">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-500/10 rounded-full blur-[150px]" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-6"
+            >
+              <BookOpen className="h-4 w-4" />
+              <span className="text-sm font-bold uppercase tracking-wider">Coming Soon</span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl lg:text-5xl font-bold mb-6"
+            >
+              Notes <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Marketplace</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            >
+              Turn your study notes into NFTs. Buy premium notes from top students. Earn royalties every time someone resells your work.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                icon: BookOpen,
+                title: "Mint Your Notes",
+                desc: "Upload PDFs, images, or documents. Mint them as NFTs and list for sale in seconds.",
+                color: "purple"
+              },
+              {
+                icon: TrendingUp,
+                title: "Earn Forever",
+                desc: "Get 5% royalty on every resale. Your knowledge keeps paying you back.",
+                color: "pink"
+              },
+              {
+                icon: Users,
+                title: "Fair Prices",
+                desc: "Notes priced between 10-100 MON. Affordable for students, profitable for creators.",
+                color: "blue"
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className="card-protocol p-8 hover:border-purple-500/30 transition-all duration-300 group"
+              >
+                <div className={`h-14 w-14 rounded-2xl bg-${item.color}-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`h-7 w-7 text-${item.color}-400`} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Marketplace Preview Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="card-protocol p-8 border-purple-500/20 bg-gradient-to-br from-purple-900/10 to-pink-900/10">
+              <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+                <div>
+                  <h3 className="text-xl font-bold">Marketplace Preview</h3>
+                  <p className="text-sm text-muted-foreground">Top Selling Notes This Week</p>
+                </div>
+                <div className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-bold">
+                  BETA
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-4 mb-8">
+                {[
+                  { title: "Data Structures Complete", subject: "Computer Science", price: "25 MON", sales: 47 },
+                  { title: "Organic Chemistry Notes", subject: "Chemistry", price: "30 MON", sales: 32 },
+                  { title: "Calculus III Summary", subject: "Mathematics", price: "20 MON", sales: 28 }
+                ].map((note, i) => (
+                  <div key={i} className="p-4 rounded-xl bg-secondary/40 border border-white/5 hover:border-purple-500/30 transition-colors cursor-pointer group">
+                    <div className="h-20 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 mb-4 flex items-center justify-center">
+                      <BookOpen className="h-8 w-8 text-purple-400 opacity-50 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <h4 className="font-bold text-sm mb-1 truncate">{note.title}</h4>
+                    <p className="text-xs text-muted-foreground mb-3">{note.subject}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-primary font-mono font-bold">{note.price}</span>
+                      <span className="text-xs text-muted-foreground">{note.sales} sold</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/marketplace">
+                  <Button variant="hero" size="xl" className="gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 w-full sm:w-auto">
+                    Explore Marketplace
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link to="/mint-note">
+                  <Button variant="outline" size="xl" className="gap-2 border-purple-500/30 hover:bg-purple-500/10 w-full sm:w-auto">
+                    <BookOpen className="h-4 w-4" />
+                    Mint Your Notes
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 flex justify-center gap-12 text-center"
+          >
+            {[
+              { value: "50 MON", label: "Min Withdraw" },
+              { value: "5%", label: "Creator Royalty" },
+              { value: "5%", label: "Platform Fee" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-2xl font-bold text-purple-400">{stat.value}</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

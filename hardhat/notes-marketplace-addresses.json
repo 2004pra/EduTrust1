@@ -1,0 +1,18 @@
+{
+  "network": "monad-testnet",
+  "chainId": 10143,
+  "deployedAt": "2026-02-07T07:53:17.551Z",
+  "deployer": "0x381af6Ee9D93C9DAF539D3392416FC826FAF298B",
+  "contracts": {
+    "EduNotes": "0x15B93e8305D4653C2042927D993D5Dc47DBD9C8f",
+    "NotesMarketplace": "0x949f11dC2415C8b42d58f3d97F86762E75bA6F58"
+  },
+  "configuration": {
+    "minPrice": "10 MON",
+    "maxPrice": "100 MON",
+    "minWithdrawal": "50 MON",
+    "platformFee": "5%",
+    "creatorRoyalty": "5%",
+    "feeRecipient": "0x381af6Ee9D93C9DAF539D3392416FC826FAF298B"
+  }
+}

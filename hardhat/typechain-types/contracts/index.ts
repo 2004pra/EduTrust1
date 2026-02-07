@@ -3,4 +3,6 @@
 /* eslint-disable */
 import type * as x402PaymentVerifierSol from "./X402PaymentVerifier.sol";
 export type { x402PaymentVerifierSol };
+export type { EduNotes } from "./EduNotes";
 export type { EduTrustCredential } from "./EduTrustCredential";
+export type { NotesMarketplace } from "./NotesMarketplace";

@@ -1,0 +1,632 @@
+2026-02-07T07:45:01.760Z hardhat:core:vars:varsManager Creating a new instance of VarsManager
+2026-02-07T07:45:01.762Z hardhat:core:vars:varsManager Loading ENV variables if any
+2026-02-07T07:45:01.783Z hardhat:core:config Loading Hardhat config from C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\hardhat.config.cts
+2026-02-07T07:45:02.416Z hardhat:core:hre Creating HardhatRuntimeEnvironment
+2026-02-07T07:45:02.420Z hardhat:core:global-dir Looking up Client Id at C:\Users\PRASHANT MISHRA\AppData\Local\hardhat-nodejs\Data\analytics.json
+2026-02-07T07:45:02.422Z hardhat:core:global-dir Client Id found: aad315d5-b9d0-4b0d-b599-581cf585a756
+2026-02-07T07:45:02.423Z hardhat:core:hre Running task compile
+2026-02-07T07:45:02.424Z hardhat:core:hre Running compile's super
+2026-02-07T07:45:02.424Z hardhat:core:hre Running task compile:get-compilation-tasks
+2026-02-07T07:45:02.425Z hardhat:core:hre Running task compile:solidity
+2026-02-07T07:45:02.425Z hardhat:core:hre Running task compile:solidity:get-source-paths
+2026-02-07T07:45:02.427Z hardhat:core:hre Running task compile:solidity:get-source-names
+2026-02-07T07:45:02.432Z hardhat:core:hre Running task compile:solidity:get-dependency-graph
+2026-02-07T07:45:02.432Z hardhat:core:hre Running task compile:solidity:get-remappings
+2026-02-07T07:45:02.434Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.435Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.435Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.435Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.437Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.438Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.493Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.494Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.494Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.494Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.494Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.495Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.495Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.495Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.495Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.495Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.496Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.496Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.496Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.496Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.497Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.497Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.498Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.499Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.500Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.500Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.501Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.502Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.502Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.502Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.505Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.505Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.505Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.505Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.506Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.506Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.506Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.512Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.513Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.517Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.517Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.517Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.517Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.517Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.519Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.523Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.523Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.523Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.527Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.527Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.553Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.553Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.555Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.555Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.556Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.556Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.556Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.556Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.556Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.557Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.558Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.558Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.559Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.559Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.560Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.560Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.560Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.560Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.560Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.561Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.561Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.561Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.561Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.561Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.562Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.562Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.562Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.562Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.563Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.563Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.563Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.563Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.564Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.564Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.565Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.566Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.567Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.567Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.569Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.571Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.571Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.572Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.572Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.573Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.574Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.575Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.580Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.580Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.581Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.581Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.581Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.582Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.582Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.584Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.584Z hardhat:core:hre Running task compile:solidity:read-file
+2026-02-07T07:45:02.585Z hardhat:core:hre Running task compile:solidity:transform-import-name
+2026-02-07T07:45:02.598Z hardhat:core:hre Running task compile:solidity:get-compilation-jobs
+2026-02-07T07:45:02.598Z hardhat:core:tasks:compile The dependency graph was divided in '1' connected components
+2026-02-07T07:45:02.598Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.599Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC2981.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\Ownable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.600Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Enumerable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduNotes.sol'
+2026-02-07T07:45:02.601Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.601Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Enumerable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.602Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.603Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Enumerable.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Enumerable.sol'
+2026-02-07T07:45:02.603Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.603Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol'
+2026-02-07T07:45:02.604Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.604Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol'
+2026-02-07T07:45:02.604Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.604Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol'
+2026-02-07T07:45:02.604Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol'
+2026-02-07T07:45:02.604Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.605Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.605Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.605Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol'
+2026-02-07T07:45:02.605Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.605Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.605Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.605Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.605Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.605Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.605Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol'
+2026-02-07T07:45:02.606Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.606Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol'
+2026-02-07T07:45:02.606Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.606Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.606Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.606Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol'
+2026-02-07T07:45:02.606Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.606Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.606Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.606Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.606Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol'
+2026-02-07T07:45:02.607Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.607Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\ERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC4906.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\utils\ERC721Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\ERC721URIStorage.sol'
+2026-02-07T07:45:02.607Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.607Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\extensions\IERC721Metadata.sol'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.608Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.608Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.608Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.609Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.609Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol'
+2026-02-07T07:45:02.609Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.609Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol'
+2026-02-07T07:45:02.609Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.609Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol'
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol'
+2026-02-07T07:45:02.609Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.609Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.609Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\IAccessControl.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\Ownable.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\Ownable.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\X402PaymentVerifier.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\ReentrancyGuard.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\X402PaymentVerifier.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\Ownable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\X402PaymentVerifier.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\X402PaymentVerifier.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\ReentrancyGuard.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC2981.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\ReentrancyGuard.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\Ownable.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC721\IERC721.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\NotesMarketplace.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC2981.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\IERC2981.sol'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.610Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\IAccessControl.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.610Z hardhat:core:hre Running task compile:solidity:get-compilation-job-for-file
+2026-02-07T07:45:02.610Z hardhat:core:hre Running compile:solidity:get-compilation-job-for-file's super
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol' will be compiled with version '0.8.20'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\AccessControl.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Strings.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\ERC1155Supply.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\access\IAccessControl.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SignedMath.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Context.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\ERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\utils\ERC1155Utils.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\extensions\IERC1155MetadataURI.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\SafeCast.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Panic.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\interfaces\draft-IERC6093.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155Receiver.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\introspection\IERC165.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\IERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\token\ERC1155\ERC1155.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Arrays.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\SlotDerivation.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\StorageSlot.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\Comparators.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.611Z hardhat:core:compilation-job File 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\node_modules\@openzeppelin\contracts\utils\math\Math.sol' added as dependency of 'C:\Users\PRASHANT MISHRA\edutrust-credential-hub\hardhat\contracts\EduTrustCredential.sol'
+2026-02-07T07:45:02.612Z hardhat:core:hre Running task compile:solidity:handle-compilation-jobs-failures
+2026-02-07T07:45:02.613Z hardhat:core:hre Running task compile:solidity:filter-compilation-jobs
+2026-02-07T07:45:02.613Z hardhat:core:tasks:compile force flag enabled, not filtering
+2026-02-07T07:45:02.613Z hardhat:core:hre Running task compile:solidity:merge-compilation-jobs
+2026-02-07T07:45:02.620Z hardhat:core:hre Running task compile:solidity:compile-jobs
+2026-02-07T07:45:02.621Z hardhat:core:hre Running compile:solidity:compile-jobs's super
+2026-02-07T07:45:02.621Z hardhat:core:tasks:compile Compiling 1 jobs
+2026-02-07T07:45:02.623Z hardhat:core:hre Running task compile:solidity:compile-job
+2026-02-07T07:45:02.623Z hardhat:core:tasks:compile Compiling job with version '0.8.20'
+2026-02-07T07:45:02.623Z hardhat:core:hre Running task compile:solidity:get-compiler-input
+2026-02-07T07:45:02.623Z hardhat:core:hre Running compile:solidity:get-compiler-input's super
+2026-02-07T07:45:02.632Z hardhat:core:hre Running task compile:solidity:compile
+2026-02-07T07:45:02.632Z hardhat:core:hre Running task compile:solidity:solc:compile
+2026-02-07T07:45:02.633Z hardhat:core:hre Running task compile:solidity:solc:get-build
+2026-02-07T07:45:02.635Z hardhat:util:multi-process-mutex Creating mutex with name 'compiler-download'
+2026-02-07T07:45:02.636Z hardhat:util:multi-process-mutex Starting mutex process with mutex file 'C:\Users\PRASHA~1\AppData\Local\Temp\compiler-download.txt'
+2026-02-07T07:45:02.636Z hardhat:util:multi-process-mutex Mutex acquired at path 'C:\Users\PRASHA~1\AppData\Local\Temp\compiler-download.txt'
+2026-02-07T07:45:02.640Z hardhat:util:multi-process-mutex Mutex released at path 'C:\Users\PRASHA~1\AppData\Local\Temp\compiler-download.txt'
+2026-02-07T07:45:02.641Z hardhat:util:multi-process-mutex Deleting mutex file at path 'C:\Users\PRASHA~1\AppData\Local\Temp\compiler-download.txt'
+2026-02-07T07:45:02.642Z hardhat:util:multi-process-mutex Mutex released at path 'C:\Users\PRASHA~1\AppData\Local\Temp\compiler-download.txt'
+2026-02-07T07:45:02.644Z hardhat:core:hre Running task compile:solidity:log:run-compiler-start
+2026-02-07T07:45:02.644Z hardhat:core:hre Running task compile:solidity:solc:run
+2026-02-07T07:45:05.678Z hardhat:core:hre Running task compile:solidity:log:run-compiler-end
+2026-02-07T07:45:05.679Z hardhat:core:hre Running task compile:solidity:check-errors
+2026-02-07T07:45:05.679Z hardhat:core:hre Running task compile:solidity:log:compilation-errors
+2026-02-07T07:45:05.680Z hardhat:core:hre Running compile:solidity:log:compilation-errors's super
+Warning: Unused local variable.
+   --> contracts/X402PaymentVerifier.sol:145:14:
+    |
+145 |             (bool sent, ) = issuerAddress.call{value: issuerAmount}("");
+    |              ^^^^^^^^^
+
+
+2026-02-07T07:45:05.682Z hardhat:core:hre Running task compile:solidity:emit-artifacts
+2026-02-07T07:45:05.800Z hardhat:core:tasks:compile Emitting artifact for contract 'EduNotes'
+2026-02-07T07:45:05.801Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.801Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC2981'
+2026-02-07T07:45:05.801Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.801Z hardhat:core:tasks:compile Emitting artifact for contract 'Ownable'
+2026-02-07T07:45:05.801Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.801Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC721'
+2026-02-07T07:45:05.801Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'Strings'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC721URIStorage'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC721Enumerable'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC165'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'Context'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC721'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC1155Errors'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC20Errors'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.802Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC721Errors'
+2026-02-07T07:45:05.802Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC165'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC721Utils'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC721Metadata'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'Math'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'SafeCast'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'SignedMath'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'Panic'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.803Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC721Receiver'
+2026-02-07T07:45:05.803Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC4906'
+2026-02-07T07:45:05.804Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC721Enumerable'
+2026-02-07T07:45:05.804Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC1155Receiver'
+2026-02-07T07:45:05.804Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC1155Utils'
+2026-02-07T07:45:05.804Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'Arrays'
+2026-02-07T07:45:05.804Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.804Z hardhat:core:tasks:compile Emitting artifact for contract 'SlotDerivation'
+2026-02-07T07:45:05.805Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.805Z hardhat:core:tasks:compile Emitting artifact for contract 'StorageSlot'
+2026-02-07T07:45:05.805Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.805Z hardhat:core:tasks:compile Emitting artifact for contract 'Comparators'
+2026-02-07T07:45:05.805Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.805Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC1155Supply'
+2026-02-07T07:45:05.805Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.805Z hardhat:core:tasks:compile Emitting artifact for contract 'ERC1155'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC1155'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'IERC1155MetadataURI'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'AccessControl'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'IAccessControl'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'IEduTrustCredential'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.806Z hardhat:core:tasks:compile Emitting artifact for contract 'X402PaymentVerifier'
+2026-02-07T07:45:05.806Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.807Z hardhat:core:tasks:compile Emitting artifact for contract 'ReentrancyGuard'
+2026-02-07T07:45:05.807Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.807Z hardhat:core:tasks:compile Emitting artifact for contract 'NotesMarketplace'
+2026-02-07T07:45:05.807Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.807Z hardhat:core:tasks:compile Emitting artifact for contract 'EduTrustCredential'
+2026-02-07T07:45:05.807Z hardhat:core:hre Running task compile:solidity:get-artifact-from-compilation-output
+2026-02-07T07:45:05.847Z hardhat:core:hre Running task typechain:generate-types
+Generating typings for: 40 artifacts in dir: typechain-types for target: ethers-v6
+Successfully generated 94 typings!
+2026-02-07T07:45:10.347Z hardhat:core:hre Running task compile:solidity:log:compilation-result
+Compiled 39 Solidity files successfully (evm target: paris).
+2026-02-07T07:45:10.349Z hardhat:core:hre Running task compile:remove-obsolete-artifacts
+2026-02-07T07:45:10.506Z hardhat:core:cli Killing Hardhat after successfully running task compile

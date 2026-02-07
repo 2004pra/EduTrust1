@@ -2,4 +2,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as x402PaymentVerifierSol from "./X402PaymentVerifier.sol";
+export { EduNotes__factory } from "./EduNotes__factory";
 export { EduTrustCredential__factory } from "./EduTrustCredential__factory";
+export { NotesMarketplace__factory } from "./NotesMarketplace__factory";

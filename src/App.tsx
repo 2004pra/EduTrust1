@@ -15,6 +15,9 @@ import IssuerLogin from "./pages/IssuerLogin";
 import StudentVault from "./pages/StudentVault";
 import VerificationPage from "./pages/VerificationPage";
 import BulkVerificationPage from "./pages/BulkVerificationPage";
+import NotesMarketplace from "./pages/NotesMarketplace";
+import MintNote from "./pages/MintNote";
+import MyNotes from "./pages/MyNotes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -65,6 +68,10 @@ const AppRoutes = () => {
 
         <Route path="/roles" element={<RoleSelection />} />
 
+        {/* Marketplace Routes - Public Access */}
+        <Route path="/marketplace" element={<NotesMarketplace />} />
+        <Route path="/mint-note" element={<MintNote />} />
+        <Route path="/my-notes" element={<MyNotes />} />
 
         <Route path="/vault" element={
           <ProtectedRoute allowedRole="student">
